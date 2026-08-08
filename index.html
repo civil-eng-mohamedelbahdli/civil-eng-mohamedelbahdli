@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamad Elbahdli – Structural Civil Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 900: '#0B1A2F', 800: '#112240', 700: '#1A3358', 600: '#233F6A' },
+            steel: { 400: '#8FA8C8', 300: '#B0C4DE', 200: '#D0DCF0', 100: '#EBF1FA' },
+            amber: { 500: '#E8A020', 400: '#F0B640', 300: '#F5CA6E' },
+            slate: { 700: '#334155', 500: '#64748B', 300: '#CBD5E1', 100: '#F1F5F9' },
+          },
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* ── Base ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0B1A2F;
+      color: #EBF1FA;
+      overflow-x: hidden;
+    }
+
+    /* ── Blueprint grid overlay on hero ── */
+    .blueprint-bg {
+      background-color: #0B1A2F;
+      background-image:
+        linear-gradient(rgba(143, 168, 200, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(143, 168, 200, .07) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0B1A2F;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #E8A020;
+      border-radius: 3px;
+    }
+
+    /* ── Nav ── */
+    .nav-link {
+      position: relative;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #B0C4DE;
+      transition: color .25s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E8A020;
+      transition: width .3s;
+    }
+
+    .nav-link:hover {
+      color: #F0B640;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-scrolled {
+      background: rgba(11, 26, 47, .96) !important;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, .4);
+    }
+
+    /* ── Hero text ── */
+    .hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.02em;
+      text-transform: uppercase;
+    }
+
+    .amber-line {
+      color: #E8A020;
+    }
+
+    /* ── Profession typewriter ── */
+    #typewriter {
+      border-right: 3px solid #E8A020;
+      padding-right: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    /* ── Section labels ── */
+    .section-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #E8A020;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #EBF1FA;
+      line-height: 1;
+    }
+
+    /* ── Cards ── */
+    .card-glass {
+      background: rgba(17, 34, 64, .7);
+      border: 1px solid rgba(143, 168, 200, .15);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+
+    .card-glass:hover {
+      border-color: rgba(232, 160, 32, .4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .4), 0 0 0 1px rgba(232, 160, 32, .15);
+    }
+
+    .contact-action-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+    }
+
+    .contact-action-card:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: rgba(232, 160, 32, .45);
+      box-shadow: 0 18px 40px rgba(232, 160, 32, .16);
+      background: rgba(232, 160, 32, .08);
+    }
+
+    .contact-action-icon {
+      min-width: 3.5rem;
+      min-height: 3.5rem;
+      border-radius: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      background: rgba(232, 160, 32, .12);
+      color: #E8A020;
+      box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .08);
+    }
+
+    /* ── Skill bar ── */
+    .skill-bar-track {
+      background: rgba(143, 168, 200, .12);
+      border-radius: 99px;
+      overflow: hidden;
+      height: 6px;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #E8A020, #F5CA6E);
+      transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
+      width: 0;
+    }
+
+    /* ── Projects showcase ── */
+    .project-lang-btn,
+    .project-filter-btn {
+      border: 1px solid rgba(143, 168, 200, .2);
+      background: rgba(17, 34, 64, .7);
+      color: #B0C4DE;
+      padding: .6rem 1rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: all .25s ease;
+    }
+
+    .project-lang-btn.active,
+    .project-filter-btn.active {
+      background: rgba(232, 160, 32, .16);
+      border-color: rgba(232, 160, 32, .4);
+      color: #F0B640;
+      box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .25);
+    }
+
+    .project-card {
+      display: block;
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .project-media {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(143, 168, 200, .16);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03);
+      background: rgba(3, 10, 22, .35);
+    }
+
+    .project-gallery {
+      position: relative;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .project-gallery-main {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border-radius: 1rem;
+    }
+
+    .project-gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+      display: block;
+    }
+
+    .project-card:hover .project-gallery-main img,
+    .project-gallery-main:hover img {
+      transform: scale(1.06);
+    }
+
+    .project-gallery-controls {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .project-gallery-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(8, 22, 47, .8);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background .25s ease, transform .2s ease, border-color .25s ease;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .project-gallery-control:hover {
+      background: rgba(232, 160, 32, .95);
+      border-color: rgba(232, 160, 32, .8);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .project-gallery-control--prev {
+      left: 1rem;
+    }
+
+    .project-gallery-control--next {
+      right: 1rem;
+    }
+
+    .project-gallery-indicators {
+      position: absolute;
+      left: 50%;
+      bottom: 1rem;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      padding: 0;
+      margin: 0;
+      z-index: 3;
+    }
+
+    .project-gallery-indicator {
+      width: .85rem;
+      height: .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .15);
+      transition: background .25s ease, transform .25s ease, border-color .25s ease;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .project-gallery-indicator.active {
+      background: rgba(232, 160, 32, .9);
+      border-color: rgba(232, 160, 32, .9);
+      transform: scale(1.1);
+    }
+
+    .project-gallery-indicator:hover {
+      background: rgba(232, 160, 32, .4);
+    }
+
+    @media (max-width: 768px) {
+      .project-gallery-control {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+      background: linear-gradient(180deg, rgba(3, 10, 22, .08) 0%, rgba(3, 10, 22, .92) 100%);
+      transform: translateY(8px);
+      opacity: 0;
+      transition: all .3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Pill tags ── */
+    .tag {
+      display: inline-block;
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      text-transform: uppercase;
+    }
+
+    .tag-amber {
+      background: rgba(232, 160, 32, .15);
+      color: #F0B640;
+      border: 1px solid rgba(232, 160, 32, .3);
+    }
+
+    .tag-steel {
+      background: rgba(143, 168, 200, .1);
+      color: #B0C4DE;
+      border: 1px solid rgba(143, 168, 200, .2);
+    }
+
+    /* ── Timeline ── */
+    .timeline-line {
+      position: absolute;
+      left: 18px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #E8A020, rgba(232, 160, 32, 0));
+    }
+
+    .timeline-dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #112240;
+      border: 2px solid #E8A020;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    /* ── Contact input ── */
+    .form-input {
+      width: 100%;
+      background: rgba(17, 34, 64, .8);
+      border: 1px solid rgba(143, 168, 200, .2);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      color: #EBF1FA;
+      font-family: inherit;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .25s, box-shadow .25s;
+    }
+
+    .form-input::placeholder {
+      color: #64748B;
+    }
+
+    .form-input:focus {
+      border-color: #E8A020;
+      box-shadow: 0 0 0 3px rgba(232, 160, 32, .15);
+    }
+
+    /* ── Buttons ── */
+    .btn-amber {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #E8A020;
+      color: #0B1A2F;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .75rem 1.75rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background .25s, transform .2s, box-shadow .25s;
+    }
+
+    .btn-amber:hover {
+      background: #F0B640;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232, 160, 32, .35);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: #B0C4DE;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .75rem 1.75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(143, 168, 200, .35);
+      cursor: pointer;
+      transition: color .25s, border-color .25s, transform .2s;
+    }
+
+    .btn-ghost:hover {
+      color: #EBF1FA;
+      border-color: #EBF1FA;
+      transform: translateY(-2px);
+    }
+
+    /* ── Language toggle and hero portrait ── */
+    .lang-toggle-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    .lang-toggle-btn {
+      min-width: 2.7rem;
+      height: 2.7rem;
+      padding: 0 .7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(143, 168, 200, .2);
+      background: rgba(17, 34, 64, .7);
+      color: #B0C4DE;
+      border-radius: 9999px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: all .25s ease;
+    }
+
+    .lang-toggle-btn:hover,
+    .lang-toggle-btn.active {
+      background: rgba(232, 160, 32, .16);
+      border-color: rgba(232, 160, 32, .4);
+      color: #F0B640;
+      box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .25);
+    }
+
+    .hero-photo-shell {
+      position: relative;
+      width: min(100%, 440px);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, rgba(17, 34, 64, .95), rgba(10, 24, 45, .88));
+      border: 1px solid rgba(143, 168, 200, .2);
+      box-shadow: 0 18px 44px rgba(2, 8, 20, .35);
+      overflow: hidden;
+    }
+
+    .hero-photo-shell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232, 160, 32, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 160, 32, .08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(143, 168, 200, .18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03);
+      background: #081526;
+    }
+
+    .hero-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      transition: transform .5s ease, filter .5s ease;
+    }
+
+    .hero-photo-shell:hover .hero-photo {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: .55rem .7rem;
+      border-radius: 999px;
+      background: rgba(11, 26, 47, .9);
+      border: 1px solid rgba(232, 160, 32, .25);
+      backdrop-filter: blur(8px);
+    }
+
+    body[dir="rtl"] .hero-copy {
+      text-align: right;
+    }
+
+    body[dir="rtl"] .hero-actions {
+      justify-content: flex-end;
+    }
+
+    body[dir="rtl"] .hero-stats {
+      flex-direction: row-reverse;
+    }
+
+    /* ── Social icons ── */
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(143, 168, 200, .2);
+      color: #B0C4DE;
+      background: rgba(17, 34, 64, .75);
+      transition: all .25s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(232, 160, 32, .14);
+    }
+
+    .social-facebook:hover {
+      color: #1877F2;
+      border-color: rgba(24, 119, 242, .35);
+      background: rgba(24, 119, 242, .12);
+    }
+
+    .social-mostaql:hover {
+      color: #E8A020;
+      border-color: rgba(232, 160, 32, .35);
+      background: rgba(232, 160, 32, .12);
+    }
+
+    .social-linkedin:hover {
+      color: #0A66C2;
+      border-color: rgba(10, 102, 194, .35);
+      background: rgba(10, 102, 194, .12);
+    }
+
+    .social-youtube:hover {
+      color: #FF0000;
+      border-color: rgba(255, 0, 0, .35);
+      background: rgba(255, 0, 0, .12);
+    }
+
+    .social-github:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, .35);
+      background: rgba(255, 255, 255, .12);
+    }
+
+    /* ── Stat counter ── */
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #E8A020;
+      line-height: 1;
+    }
+
+    /* ── Animate on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: .4s;
+    }
+
+    /* ── Mobile nav ── */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+
+    #mobile-menu.open {
+      max-height: 400px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid rgba(143, 168, 200, .1);
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .skill-bar-fill {
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded flex items-center justify-center" style="background:#E8A020">
+          <span class="font-display font-800 text-navy-900 text-base leading-none font-extrabold"
+            style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800">ME</span>
+        </div>
+        <span class="font-display font-semibold tracking-widest text-sm text-steel-300 uppercase hidden sm:block"
+          style="font-family:'Barlow Condensed',sans-serif;letter-spacing:.12em">Elbahdli</span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-3 lg:gap-4">
+        <a href="#about" id="nav-about" class="nav-link">About</a>
+        <a href="#experience" id="nav-experience" class="nav-link">Experience</a>
+        <a href="#skills" id="nav-skills" class="nav-link">Skills</a>
+        <a href="#contact" id="nav-contact" class="nav-link">Contact</a>
+        <div class="lang-toggle-wrap">
+          <button class="project-lang-btn lang-toggle-btn active" data-lang="en"
+            aria-label="Switch to English">EN</button>
+          <button class="project-lang-btn lang-toggle-btn" data-lang="ar"
+            aria-label="التبديل إلى العربية">العربية</button>
+        </div>
+        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire" class="btn-amber text-xs py-2 px-4">Hire Me</a>
+      </div>
+
+      <!-- Mobile header actions -->
+      <div class="flex items-center gap-2 md:hidden">
+        <div class="lang-toggle-wrap">
+          <button class="project-lang-btn lang-toggle-btn active" data-lang="en"
+            aria-label="Switch to English">EN</button>
+          <button class="project-lang-btn lang-toggle-btn" data-lang="ar"
+            aria-label="التبديل إلى العربية">العربية</button>
+        </div>
+        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire-mobile-header" class="btn-amber text-xs py-2 px-4">Hire
+          Me</a>
+        <button id="menu-btn" class="text-steel-300 hover:text-amber-400 transition-colors p-1"
+          aria-label="Toggle menu">
+          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
+      <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-4 border-t border-steel-400 border-opacity-10 mt-3">
+        <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
+        <a href="#experience" id="nav-experience-mobile" class="nav-link" onclick="closeMobile()">Experience</a>
+        <a href="#skills" id="nav-skills-mobile" class="nav-link" onclick="closeMobile()">Skills</a>
+        <a href="#contact" id="nav-contact-mobile" class="nav-link" onclick="closeMobile()">Contact</a>
+        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire-mobile"
+          class="btn-amber self-start text-xs py-2 px-4">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+  <section id="hero" class="blueprint-bg min-h-screen flex flex-col justify-center relative overflow-hidden">
+
+    <!-- Decorative accent bar -->
+    <div class="absolute left-0 top-0 bottom-0 w-1"
+      style="background:linear-gradient(to bottom,transparent,#E8A020,transparent)"></div>
+
+    <!-- Floating blueprint corner marks -->
+    <div class="absolute top-24 right-12 hidden lg:block opacity-20">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#8FA8C8" stroke-width="1">
+        <path d="M0 20 L0 0 L20 0" />
+        <path d="M60 0 L80 0 L80 20" />
+        <path d="M80 60 L80 80 L60 80" />
+        <path d="M20 80 L0 80 L0 60" />
+        <line x1="40" y1="10" x2="40" y2="70" />
+        <line x1="10" y1="40" x2="70" y2="40" />
+      </svg>
+    </div>
+    <div class="absolute bottom-20 left-16 hidden lg:block opacity-15">
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#E8A020" stroke-width="1">
+        <rect x="5" y="5" width="50" height="50" />
+        <line x1="5" y1="30" x2="55" y2="30" />
+        <line x1="30" y1="5" x2="30" y2="55" />
+      </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 pt-28 pb-16 w-full">
+      <div id="hero-layout" class="flex flex-col gap-12 items-center lg:flex-row">
+
+        <!-- Left: text -->
+        <div class="hero-copy w-full lg:w-1/2">
+          <p id="hero-eyebrow" class="section-eyebrow mb-4 reveal">Structural Civil Engineer</p>
+
+          <h1 id="hero-title" class="hero-name reveal reveal-delay-1">
+            MOHAMAD<br><span class="amber-line">ELBAHDLI</span>
+          </h1>
+
+          <div class="mt-5 reveal reveal-delay-2" style="height:1.8rem">
+            <span id="typewriter" class="text-steel-300 font-medium text-base"></span>
+          </div>
+
+          <p id="hero-subtitle"
+            class="mt-6 text-steel-400 leading-relaxed max-w-lg text-sm md:text-base reveal reveal-delay-3">
+            Civil Engineer with 1+ year of experience in <strong class="text-steel-200">structural engineering</strong>
+            and <strong class="text-steel-200">site execution</strong>. Skilled in reinforced concrete design, shop
+            drawing review, and construction supervision — delivering accurate structural solutions with precision.
+          </p>
+
+          <div id="hero-media-mobile" class="w-full max-w-[320px] mx-auto lg:hidden mt-8 mb-8 reveal reveal-delay-2">
+            <div class="hero-photo-shell group">
+              <div class="hero-photo-frame">
+                <img class="hero-photo" src="assets/images/hero-photo.jpg"
+                  alt="Professional portrait of Mohamad Elbahdli" />
+              </div>
+              <div class="hero-badge">
+                <span class="section-eyebrow text-[10px]">Open for Projects</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions mt-2 flex flex-wrap gap-4 reveal reveal-delay-4">
+            <a href="assets/documents/Mohamed_Elbahdli_CV.pdf" id="hero-cv" class="btn-amber" download>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download CV
+            </a>
+            <a href="#contact" id="hero-contact" class="btn-ghost">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Get in Touch
+            </a>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="hero-stats mt-10 flex flex-wrap gap-6 sm:gap-8 reveal reveal-delay-4">
+            <div>
+              <div id="hero-stat-1-value" class="stat-number">3+</div>
+              <div id="hero-stat-1-label" class="text-steel-400 text-xs uppercase tracking-widest mt-1">
+                Buildings<br>Supervised</div>
+            </div>
+            <div class="w-px bg-steel-400 bg-opacity-20"></div>
+            <div>
+              <div id="hero-stat-2-value" class="stat-number">10+</div>
+              <div id="hero-stat-2-label" class="text-steel-400 text-xs uppercase tracking-widest mt-1">Team<br>Members
+                Led</div>
+            </div>
+            <div class="w-px bg-steel-400 bg-opacity-20"></div>
+            <div>
+              <div id="hero-stat-3-value" class="stat-number">10</div>
+              <div id="hero-stat-3-label" class="text-steel-400 text-xs uppercase tracking-widest mt-1">Max
+                Floors<br>Executed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: portrait -->
+        <div id="hero-media" class="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end reveal reveal-delay-2">
+          <div class="hero-photo-shell group">
+            <div class="hero-photo-frame">
+              <img class="hero-photo" src="assets/images/hero-photo.jpg"
+                alt="Professional portrait of Mohamad Elbahdli" />
+            </div>
+            <div class="hero-badge">
+              <span class="section-eyebrow text-[10px]">Open for Projects as Freelancer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+      <span id="hero-scroll" class="text-steel-400 text-xs uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-10 bg-gradient-to-b from-steel-400 to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+     ABOUT & EDUCATION
+════════════════════════════════════════ -->
+  <section id="about" class="py-24 px-6 md:px-12" style="background:#0D1F38">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: About -->
+        <div>
+          <p id="about-eyebrow" class="section-eyebrow mb-3 reveal">Who I Am</p>
+          <h2 id="about-title" class="section-title mb-6 reveal reveal-delay-1">About Me</h2>
+
+          <div class="space-y-4 text-steel-300 text-sm leading-relaxed reveal reveal-delay-2">
+            <p id="about-p1">
+              I'm a <strong class="text-steel-100">Civil Engineer</strong> specialising in structural analysis and site
+              execution, with hands-on experience supervising residential buildings up to 10 floors and leading field
+              teams of 10+ workers.
+            </p>
+            <p id="about-p2">
+              My engineering approach is built on three pillars: <span
+                class="text-amber-400 font-semibold">accuracy</span> in structural calculations, <span
+                class="text-amber-400 font-semibold">precision</span> in drawing review, and <span
+                class="text-amber-400 font-semibold">discipline</span> on the construction site — ensuring every project
+              meets both design intent and safety standards.
+            </p>
+            <p id="about-p3">
+              I also hold foundational knowledge in <strong class="text-steel-100">web security &
+                cybersecurity</strong>, giving me a unique cross-domain perspective in the digital transformation of
+              construction.
+            </p>
+          </div>
+
+          <!-- Leadership highlights -->
+          <div class="mt-8 space-y-3 reveal reveal-delay-3">
+            <h3 id="leadership-title" class="text-steel-200 font-semibold text-sm uppercase tracking-widest mb-4">
+              Leadership Skills</h3>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#E8A020"></div>
+              <span id="leadership-1" class="text-steel-300 text-sm">Team Leader – coordinated multi-member project
+                teams from analysis to
+                delivery</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#E8A020"></div>
+              <span id="leadership-2" class="text-steel-300 text-sm">Site management of 10+ workers across residential
+                building
+                projects</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#E8A020"></div>
+              <span id="leadership-3" class="text-steel-300 text-sm">Task distribution, progress tracking, and quality
+                control on active
+                sites</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#E8A020"></div>
+              <span id="leadership-4" class="text-steel-300 text-sm">Cross-functional coordination between structural
+                design and shop
+                drawing teams</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education -->
+        <div>
+          <p id="education-eyebrow" class="section-eyebrow mb-3 reveal">Academic Background</p>
+          <h2 id="education-title" class="section-title mb-6 reveal reveal-delay-1">Education</h2>
+
+          <!-- Degree card -->
+          <div class="card-glass p-6 mb-6 reveal reveal-delay-2">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+                <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <div>
+                <h3 id="education-title-card" class="text-steel-100 font-semibold">B.Sc. in Civil Engineering</h3>
+                <p id="education-subtitle-card" class="text-amber-400 text-sm font-medium mt-0.5">Mansoura University —
+                  Egypt</p>
+                <div class="flex gap-2 mt-2">
+                  <span class="tag tag-steel">Structural Track</span>
+                  <span class="tag tag-amber">Graduated</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graduation project card -->
+          <div class="card-glass p-6 reveal reveal-delay-3">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-1.5 h-1.5 rounded-full" style="background:#E8A020"></div>
+              <span class="section-eyebrow text-xs">Graduation Project</span>
+            </div>
+            <h3 id="graduation-title" class="text-steel-100 font-semibold mb-1">Structural Design of Multi-Story
+              Building</h3>
+            <span id="graduation-tag" class="tag tag-amber mb-4 inline-block">Team Leader</span>
+
+            <ul class="space-y-2.5">
+              <li id="graduation-item-1" class="flex items-start gap-2.5 text-steel-300 text-sm">
+                <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Designed multi-story buildings using ETABS and SAFE
+              </li>
+              <li class="flex items-start gap-2.5 text-steel-300 text-sm">
+                <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Led a team of 2 members with full task management
+              </li>
+              <li id="graduation-item-3" class="flex items-start gap-2.5 text-steel-300 text-sm">
+                <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Reviewed structural calculations and verified design accuracy
+              </li>
+              <li id="graduation-item-4" class="flex items-start gap-2.5 text-steel-300 text-sm">
+                <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Coordinated between structural analysis, design, and shop drawings
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+     EXPERIENCE
+════════════════════════════════════════ -->
+  <section id="experience" class="py-24 px-6 md:px-12 blueprint-bg">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-14">
+        <p id="experience-eyebrow" class="section-eyebrow mb-3 reveal">Career Path</p>
+        <h2 id="experience-title" class="section-title reveal reveal-delay-1">Professional Experience</h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative max-w-3xl mx-auto">
+
+        <!-- Entry 1 -->
+        <div class="relative flex gap-6 mb-10 reveal">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot">🏗️</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="card-glass p-6 flex-1 mb-0">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div>
+                <h3 id="experience-entry-1-title" class="text-steel-100 font-semibold text-lg">Structural Design
+                  Engineer</h3>
+                <p id="experience-entry-1-role" class="text-amber-400 font-medium text-sm">Fouda Group</p>
+              </div>
+              <span class="tag tag-amber">Current</span>
+            </div>
+            <ul class="space-y-2 text-steel-300 text-sm">
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Structural analysis and design of reinforced concrete buildings using ETABS and SAFE
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Reviewing drawings against structural design intent
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Participated in construction supervision and site quality control
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="relative flex gap-6 mb-10 reveal reveal-delay-1">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot">🏢</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="card-glass p-6 flex-1">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div>
+                <h3 id="experience-entry-2-title" class="text-steel-100 font-semibold text-lg">Site & Structural
+                  Engineer</h3>
+                <p id="experience-entry-2-role" class="text-amber-400 font-medium text-sm">Qased Khair Company</p>
+              </div>
+              <span class="tag tag-steel">Previous</span>
+            </div>
+            <ul class="space-y-2 text-steel-300 text-sm">
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Participated in construction supervision and site quality control
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Applied reinforced concrete design principles on active projects
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Coordinated execution sequences to meet project milestones
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="relative flex gap-6 reveal reveal-delay-2">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot">📐</div>
+          </div>
+          <div class="card-glass p-6 flex-1">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div>
+                <h3 id="experience-entry-3-title" class="text-steel-100 font-semibold text-lg">Structural Design
+                  Engineer</h3>
+                <p id="experience-entry-3-role" class="text-amber-400 font-medium text-sm">Al-Aziz Engineering Office
+                </p>
+              </div>
+              <span class="tag tag-steel">Previous</span>
+            </div>
+            <ul class="space-y-2 text-steel-300 text-sm">
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Structural analysis using ETABS and SAFE for RC buildings
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Produced and reviewed shop drawings with AutoCAD
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-500 mt-0.5">▸</span>
+                Verified calculation accuracy and ensured code compliance
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+     PROJECTS SHOWCASE
+════════════════════════════════════════ -->
+  <section id="projects" class="py-24 px-6 md:px-12"
+    style="background:linear-gradient(180deg, #0D1F38 0%, #0B1A2F 100%)">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+        <div class="max-w-2xl">
+          <p id="projects-eyebrow" class="section-eyebrow mb-3 reveal" data-en="Projects Showcase"
+            data-ar="معرض المشاريع">Projects Showcase</p>
+          <h2 id="projects-title" class="section-title reveal reveal-delay-1" data-en="Selected Work"
+            data-ar="أعمال مختارة">Selected Work</h2>
+          <p id="projects-description" class="text-steel-400 text-sm mt-3 reveal reveal-delay-2"
+            data-en="A blend of structural design, site execution, and knowledge transfer — showcased through practical engineering work."
+            data-ar="مزيج من التصميم الإنشائي والتنفيذ في الموقع ونقل المعرفة — معروض من خلال أعمال هندسية عملية.">A
+            blend of structural design, site execution, and knowledge transfer — showcased through practical engineering
+            work.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mb-8 reveal reveal-delay-2">
+        <button class="project-filter-btn active" data-category="all" data-en="All" data-ar="الكل">All</button>
+        <button class="project-filter-btn" data-category="structural" data-en="Structural Design"
+          data-ar="تصميم إنشائي">Structural Design</button>
+        <button class="project-filter-btn" data-category="site" data-en="Site Execution" data-ar="تنفيذ موقع">Site
+          Execution</button>
+        <button class="project-filter-btn" data-category="training" data-en="Training" data-ar="تدريب">Training</button>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <article class="project-card reveal" data-category="structural">
+          <div class="project-media project-gallery">
+            <div class="project-gallery-main">
+              <img src="assets/images/project-0-1.jpg"
+                alt="Tower project with basement, ground floor, and 13 repeated floors" />
+              <div class="project-gallery-controls">
+                <button type="button" class="project-gallery-control project-gallery-control--prev"
+                  aria-label="Previous image">‹</button>
+                <button type="button" class="project-gallery-control project-gallery-control--next"
+                  aria-label="Next image">›</button>
+              </div>
+              <div class="project-overlay">
+                <span class="tag tag-amber" data-en="Structural Design" data-ar="تصميم إنشائي">Structural Design</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Tower Project with Repeats"
+                  data-ar="مشروع برج بمتكرر">Tower Project with Repeats</h3>
+                <p class="text-sm text-steel-300 mt-2"
+                  data-en="Project: Tower with basement, ground floor, and 13 repeated floors"
+                  data-ar="المشروع: برج مكون من بدروم وأرضي و13 متكرر">Project: Tower with basement, ground floor, and
+                  13 repeated floors</p>
+                <p class="text-sm text-steel-200 mt-3"
+                  data-en="I also handled the seismic protection design for this structure."
+                  data-ar="واشتغلت طبعا احمي الزلازل عليه">I also handled the seismic protection design for this
+                  structure.</p>
+              </div>
+            </div>
+            <div class="project-gallery-indicators">
+              <button type="button" class="project-gallery-indicator active" data-index="0"
+                data-src="assets/images/project-0-1.jpg"
+                data-alt="Tower project with basement and 13 repeated floors"></button>
+              <button type="button" class="project-gallery-indicator" data-index="1"
+                data-src="assets/images/project-0-2.jpg" data-alt="Project 0 tower site view"></button>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="project-card reveal reveal-delay-2" data-category="training">
+          <div class="project-media project-gallery">
+            <div class="project-gallery-main">
+              <img src="assets/images/project-1.jpg" alt="Villa construction training project" />
+              <div class="project-gallery-controls">
+                <button type="button" class="project-gallery-control project-gallery-control--prev"
+                  aria-label="Previous image">‹</button>
+                <button type="button" class="project-gallery-control project-gallery-control--next"
+                  aria-label="Next image">›</button>
+              </div>
+              <div class="project-overlay">
+                <span class="tag tag-amber" data-en="Training" data-ar="تدريب">Training</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Residential Villa Supervision"
+                  data-ar="فيلا سكنية الإشراف">Residential Villa Supervision</h3>
+                <p class="text-sm text-steel-300 mt-2" data-en="Project: Residential villa – Mr. Abdel Aziz El Sayed"
+                  data-ar="المشروع: فيلا سكنية - ملك الأستاذ عبد العزيز السيد.">Project: Residential villa – Mr. Abdel
+                  Aziz El Sayed</p>
+                <p class="text-sm text-steel-200 mt-3" data-en="Location: Dakahlia Governorate, Menia El Nasr"
+                  data-ar="الموقع: محافظة الدقهلية - مركز منية النصر.">Location: Dakahlia Governorate, Menia El Nasr</p>
+              </div>
+            </div>
+            <div class="project-gallery-indicators">
+              <button type="button" class="project-gallery-indicator active" data-index="0"
+                data-src="assets/images/project-1.jpg" data-alt="Villa construction training project"></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal reveal-delay-3" data-category="site">
+          <div class="project-media project-gallery">
+            <div class="project-gallery-main">
+              <img src="assets/images/project-2-1.jpg" alt="Residential tower supervision project" />
+              <div class="project-gallery-controls">
+                <button type="button" class="project-gallery-control project-gallery-control--prev"
+                  aria-label="Previous image">‹</button>
+                <button type="button" class="project-gallery-control project-gallery-control--next"
+                  aria-label="Next image">›</button>
+              </div>
+              <div class="project-overlay">
+                <span class="tag tag-amber" data-en="Site Execution" data-ar="تنفيذ موقع">Site Execution</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Residential Tower Supervision"
+                  data-ar="إشراف برج سكني">Residential Tower Supervision</h3>
+                <p class="text-sm text-steel-300 mt-2" data-en="Project: Residential tower – Mr. Tamer Hafez"
+                  data-ar="المشروع: برج سكني - ملك الأستاذ تامر حافظ">Project: Residential tower – Mr. Tamer Hafez</p>
+                <p class="text-sm text-steel-200 mt-3"
+                  data-en="Location: Dakahlia Governorate, Menia El Nasr, Mit El Kholei"
+                  data-ar="الموقع: محافظة الدقهلية - مركز منية النصر - ميت الخولي مؤمن">Location: Dakahlia Governorate,
+                  Menia El Nasr, Mit El Kholei</p>
+              </div>
+            </div>
+            <div class="project-gallery-indicators">
+              <button type="button" class="project-gallery-indicator active" data-index="0"
+                data-src="assets/images/project-2-1.jpg" data-alt="Residential tower supervision project"></button>
+              <button type="button" class="project-gallery-indicator" data-index="1"
+                data-src="assets/images/project-2-2.jpg" data-alt="Residential tower site progress"></button>
+              <button type="button" class="project-gallery-indicator" data-index="2"
+                data-src="assets/images/project-2-3.jpg" data-alt="Reinforced concrete slab construction"></button>
+              <button type="button" class="project-gallery-indicator" data-index="3"
+                data-src="assets/images/project-2-4.jpg" data-alt="Tower project site supervision"></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal reveal-delay-4" data-category="training">
+          <div class="project-media project-gallery">
+            <div class="project-gallery-main">
+              <img src="assets/images/project-3-1.JPG" alt="Commercial and residential complex supervision" />
+              <div class="project-gallery-controls">
+                <button type="button" class="project-gallery-control project-gallery-control--prev"
+                  aria-label="Previous image">‹</button>
+                <button type="button" class="project-gallery-control project-gallery-control--next"
+                  aria-label="Next image">›</button>
+              </div>
+              <div class="project-overlay">
+                <span class="tag tag-amber" data-en="Training" data-ar="تدريب">Training</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Commercial & Residential Complex"
+                  data-ar="مجمع تجاري وسكني">Commercial & Residential Complex</h3>
+                <p class="text-sm text-steel-300 mt-2" data-en="Project: Complex – Qased Khair Company"
+                  data-ar="المشروع: مجمع تجاري وسكني - تابع لشركة قاصد خير">Project: Complex – Qased Khair Company</p>
+                <p class="text-sm text-steel-200 mt-3" data-en="Location: Dakahlia Governorate, Mansoura - Talkha"
+                  data-ar="الموقع: محافظة الدقهلية - مركز المنصورة - طلخا">Location: Dakahlia Governorate, Mansoura -
+                  Talkha</p>
+              </div>
+            </div>
+            <div class="project-gallery-indicators">
+              <button type="button" class="project-gallery-indicator active" data-index="0"
+                data-src="assets/images/project-3-1.JPG"
+                data-alt="Commercial and residential complex supervision"></button>
+              <button type="button" class="project-gallery-indicator" data-index="1"
+                data-src="assets/images/project-3-2.jpg" data-alt="Complex project construction progress"></button>
+              <button type="button" class="project-gallery-indicator" data-index="2"
+                data-src="assets/images/project-3-3.jpg" data-alt="Post-tension slab supervision"></button>
+              <button type="button" class="project-gallery-indicator" data-index="3"
+                data-src="assets/images/project-3-4.jpg" data-alt="Shop and residential complex site"></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+     SKILLS
+════════════════════════════════════════ -->
+  <section id="skills" class="py-24 px-6 md:px-12" style="background:#0D1F38">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-14">
+        <p id="skills-eyebrow" class="section-eyebrow mb-3 reveal">Capabilities</p>
+        <h2 id="skills-title" class="section-title reveal reveal-delay-1">Skills & Expertise</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Structural Software -->
+        <div class="card-glass p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+              style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-width="2" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4" />
+              </svg>
+            </div>
+            <h3 id="skills-software" class="text-steel-100 font-semibold">Structural Software</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1.5"><span
+                  class="text-steel-300 text-xs font-medium">ETABS</span><span
+                  class="text-amber-400 text-xs font-semibold">90%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5"><span class="text-steel-300 text-xs font-medium">SAFE</span><span
+                  class="text-amber-400 text-xs font-semibold">85%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5"><span
+                  class="text-steel-300 text-xs font-medium">SAP2000</span><span
+                  class="text-amber-400 text-xs font-semibold">75%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="75"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5"><span
+                  class="text-steel-300 text-xs font-medium">Revit</span><span
+                  class="text-amber-400 text-xs font-semibold">65%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="65"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5"><span
+                  class="text-steel-300 text-xs font-medium">AutoCAD</span><span
+                  class="text-amber-400 text-xs font-semibold">88%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Structural Engineering -->
+        <div class="card-glass p-6 reveal reveal-delay-1">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+              style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+              </svg>
+            </div>
+            <h3 id="skills-engineering" class="text-steel-100 font-semibold">Structural Engineering</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Reinforced Concrete Design
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Structural Analysis & Load Cases
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Shop Drawing Review & Checking
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Multi-Story Building Design
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Code Compliance (ECP, ACI)
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Foundation & Slab Design
+            </div>
+          </div>
+        </div>
+
+        <!-- Site Skills -->
+        <div class="card-glass p-6 reveal reveal-delay-2">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+              style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 id="skills-site" class="text-steel-100 font-semibold">Site Skills</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Site Supervision & Monitoring
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Construction Execution Management
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Formwork & Reinforcement Works
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Concrete Pouring & Quality Control
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Worker Team Leadership (10+ people)
+            </div>
+            <div class="flex items-center gap-2.5 text-steel-300 text-sm">
+              <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E8A020"></div>
+              Safety & HSE Compliance
+            </div>
+          </div>
+        </div>
+
+        <!-- Cybersecurity (bonus card) -->
+        <div class="card-glass p-6 md:col-span-2 lg:col-span-1 reveal reveal-delay-3"
+          style="border-color:rgba(232,160,32,.25)">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+              style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h3 id="skills-cyber" class="text-steel-100 font-semibold">Cybersecurity</h3>
+              <span class="tag tag-amber text-xs mt-0.5">Additional Skill</span>
+            </div>
+          </div>
+          <p class="text-steel-300 text-sm leading-relaxed">
+            Foundational knowledge in <strong class="text-steel-100">web security principles</strong> and cybersecurity
+            practices — enabling a security-aware mindset in digital construction workflows and project data management.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag tag-steel">Web Security</span>
+            <span class="tag tag-steel">Data Protection</span>
+            <span class="tag tag-steel">Secure Practices</span>
+          </div>
+        </div>
+
+        <!-- Soft skills -->
+        <div class="card-glass p-6 lg:col-span-2 reveal reveal-delay-4">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+              style="background:rgba(143,168,200,.1);border:1px solid rgba(143,168,200,.2)">
+              <svg class="w-5 h-5 text-steel-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 id="skills-soft" class="text-steel-100 font-semibold">Professional Competencies</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="text-center py-3 px-2 rounded-lg"
+              style="background:rgba(143,168,200,.06);border:1px solid rgba(143,168,200,.12)">
+              <div class="text-2xl mb-1">🎯</div>
+              <div class="text-steel-200 text-xs font-semibold">Problem Solving</div>
+            </div>
+            <div class="text-center py-3 px-2 rounded-lg"
+              style="background:rgba(143,168,200,.06);border:1px solid rgba(143,168,200,.12)">
+              <div class="text-2xl mb-1">👥</div>
+              <div class="text-steel-200 text-xs font-semibold">Team Leadership</div>
+            </div>
+            <div class="text-center py-3 px-2 rounded-lg"
+              style="background:rgba(143,168,200,.06);border:1px solid rgba(143,168,200,.12)">
+              <div class="text-2xl mb-1">⏱️</div>
+              <div class="text-steel-200 text-xs font-semibold">Time Management</div>
+            </div>
+            <div class="text-center py-3 px-2 rounded-lg"
+              style="background:rgba(143,168,200,.06);border:1px solid rgba(143,168,200,.12)">
+              <div class="text-2xl mb-1">🔍</div>
+              <div class="text-steel-200 text-xs font-semibold">Attention to Detail</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════ -->
+  <section id="contact" class="py-24 px-6 md:px-12 blueprint-bg">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-14">
+        <p id="contact-eyebrow" class="section-eyebrow mb-3 reveal">Let's Build Together</p>
+        <h2 id="contact-title" class="section-title reveal reveal-delay-1">Get in Touch</h2>
+        <p id="contact-description" class="text-steel-400 text-sm mt-3 max-w-md mx-auto reveal reveal-delay-2">
+          Whether it's a structural project, a consultation, or a collaboration — I'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="grid gap-6">
+        <div class="card-glass p-8 reveal">
+          <h3 id="contact-form-title" class="text-steel-100 font-semibold mb-6">Direct Contact</h3>
+          <div class="grid gap-4 md:grid-cols-2">
+            <a href="https://wa.me/201028211712" target="_blank" rel="noopener noreferrer"
+              class="contact-action-card card-glass p-8 flex flex-col justify-between gap-6">
+              <div
+                class="contact-action-icon w-20 h-20 flex items-center justify-center rounded-2xl bg-black/10 border border-white/10">
+                <i class="fab fa-whatsapp fa-3x text-emerald-500"></i>
+              </div>
+              <div>
+                <p id="contact-whatsapp-title" class="text-steel-100 font-semibold mb-2">WhatsApp</p>
+                <p id="contact-whatsapp-desc" class="text-steel-400 text-sm">Send a direct message instantly.</p>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/eng.mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
+              class="contact-action-card card-glass p-8 flex flex-col justify-between gap-6">
+              <div
+                class="contact-action-icon w-20 h-20 flex items-center justify-center rounded-2xl bg-black/10 border border-white/10">
+                <i class="fab fa-facebook-messenger fa-3x text-sky-400"></i>
+              </div>
+              <div>
+                <p id="contact-messenger-title" class="text-steel-100 font-semibold mb-2">Messenger</p>
+                <p id="contact-messenger-desc" class="text-steel-400 text-sm">Send a message on Facebook Messenger.</p>
+              </div>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center mt-10 mx-auto max-w-lg">
+            <a href="https://mostaql.com/u/Mo7amed_Elmorsy" target="_blank" rel="noopener noreferrer"
+              class="social-icon social-mostaql" aria-label="Mostaql">
+              <i class="fas fa-briefcase fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/eng-mohamed-elbahdli/" target="_blank" rel="noopener noreferrer"
+              class="social-icon social-linkedin" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in fa-lg"></i>
+            </a>
+            <a href="https://www.youtube.com/@eng.mohamed-elbahdli/videos" target="_blank" rel="noopener noreferrer"
+              class="social-icon social-youtube" aria-label="YouTube">
+              <i class="fab fa-youtube fa-lg"></i>
+            </a>
+            <a href="https://github.com/mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
+              class="social-icon social-github" aria-label="GitHub">
+              <i class="fab fa-github fa-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+  <footer class="py-8 px-6 md:px-12" style="background:#0B1A2F">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded flex items-center justify-center" style="background:#E8A020">
+          <span
+            style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.75rem">ME</span>
+        </div>
+        <span id="footer-text" class="text-steel-400 text-xs">Mohamad Elbahdli – Civil Engineer</span>
+      </div>
+      <p id="footer-note" class="text-steel-400 text-xs">
+        © <span id="year"></span> · Designed with Mohamed Elbahdli
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+  <script>
+    /* ── Year ── */
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    /* ── Navbar scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
+    });
+
+    /* ── Mobile menu ── */
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        iconOpen.classList.toggle('hidden', isOpen);
+        iconClose.classList.toggle('hidden', !isOpen);
+      });
+    }
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+
+    /* ── Reveal on scroll ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Skill bars ── */
+    const barObserver = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          barObserver.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.3 }
+    );
+    document.querySelectorAll('.card-glass').forEach(card => barObserver.observe(card));
+
+    /* ── Projects showcase ── */
+    const languageButtons = document.querySelectorAll('.lang-toggle-btn');
+    const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // أكتب نصوص الموقع هنا بالإنجليزية والعربية في مكان واحد واضح ومحدد
+    // أضف أو غيّر أي نص لاحقًا من هذا الكائن فقط دون لمس بنية الصفحة
+    const data = {
+      en: {
+        nav: { about: 'About', experience: 'Experience', skills: 'Skills', contact: 'Contact', hire: 'Hire Me' },
+        hero: {
+          eyebrow: 'Structural Civil Engineer',
+          title: 'MOHAMAD<br><span class="amber-line">ELBAHDLI</span>',
+          subtitle: 'Civil Engineer with 1+ year of experience in <strong class="text-steel-200">structural engineering</strong> and <strong class="text-steel-200">site execution</strong>. Skilled in reinforced concrete design, shop drawing review, and construction supervision — delivering accurate structural solutions with precision.',
+          cv: 'Download CV',
+          contact: 'Get in Touch',
+          scroll: 'Scroll',
+          stat1: 'Buildings<br>Supervised',
+          stat2: 'Team<br>Members Led',
+          stat3: 'Max Floors<br>Executed'
+        },
+        about: { eyebrow: 'Who I Am', title: 'About Me', intro1: 'I’m a <strong class="text-steel-100">Civil Engineer</strong> specialising in structural analysis and site execution, with hands-on experience supervising residential buildings up to 10 floors and leading field teams of 10+ workers.', intro2: 'My engineering approach is built on three pillars: <span class="text-amber-400 font-semibold">accuracy</span> in structural calculations, <span class="text-amber-400 font-semibold">precision</span> in drawing review, and <span class="text-amber-400 font-semibold">discipline</span> on the construction site — ensuring every project meets both design intent and safety standards.', intro3: 'I also hold foundational knowledge in <strong class="text-steel-100">web security & cybersecurity</strong>, giving me a unique cross-domain perspective in the digital transformation of construction.', leadership: 'Leadership Skills', bullet1: 'Team Leader – coordinated multi-member project teams from analysis to delivery', bullet2: 'Site management of 10+ workers across residential building projects', bullet3: 'Task distribution, progress tracking, and quality control on active sites', bullet4: 'Cross-functional coordination between structural design and shop drawing teams' },
+        education: { eyebrow: 'Academic Background', title: 'Education', degreeTitle: 'B.Sc. in Civil Engineering', degreeSubtitle: 'Mansoura University — Egypt', projectTitle: 'Structural Design of Multi-Story Building', projectTag: 'Team Leader', projectItem1: 'Designed multi-story buildings using ETABS and SAFE', projectItem2: 'Led a team of 2 members with full task management', projectItem3: 'Reviewed structural calculations and verified design accuracy', projectItem4: 'Coordinated between structural analysis, design, and shop drawings' },
+        experience: {
+          eyebrow: 'Career Path',
+          title: 'Professional Experience',
+          // أكتب نص الخبرة هنا بالإنجليزية
+          entry1Title: 'Structural Design Engineer',
+          entry1Role: 'Fouda Group',
+          entry2Title: 'Site & Structural Engineer Trainee',
+          entry2Role: 'Qased Khair Company',
+          entry3Title: 'Site Engineer – Residential Tower Project Trainee',
+          entry3Role: 'Al-Aziz Engineering Office'
+        },
+        projects: { eyebrow: 'Projects Showcase', title: 'Selected Work', description: 'A blend of structural design, site execution, and knowledge transfer — showcased through practical engineering work.' },
+        skills: { eyebrow: 'Capabilities', title: 'Skills & Expertise', software: 'Structural Software', engineering: 'Structural Engineering', site: 'Site Skills', cybersecurity: 'Cybersecurity', soft: 'Professional Competencies' },
+        contact: { eyebrow: 'Let\'s Build Together', title: 'Get in Touch', description: 'Whether it\'s a structural project, a consultation, or a collaboration — I\'d love to hear from you.', formTitle: 'Direct Contact', whatsappTitle: 'WhatsApp', whatsappDesc: 'Send a direct message instantly.', messengerTitle: 'Messenger', messengerDesc: 'Send a message on Facebook Messenger.', emailTitle: 'Email', emailDesc: 'mohamedelbahdli@gmail.com', send: 'Send Message', direct: 'Direct Contact', social: 'Social & Professional', email: 'Email', phone: 'Phone / WhatsApp', location: 'Location', messageSent: '✓ Message sent! I\'ll get back to you shortly.' },
+        footer: { text: 'Mohamad Elbahdli – Civil Engineer', note: 'Designed with Mohamed Elbahdli' }
+      },
+      ar: {
+        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', contact: 'التواصل', hire: 'تعاون' },
+        hero: {
+          eyebrow: 'مهندس مدني إنشائي',
+          title: 'محمد<br><span class="amber-line">البهدلي</span>',
+          subtitle: 'مهندس مدني بخبرة تزيد عن سنة في <strong class="text-steel-200">الهندسة الإنشائية</strong> و<strong class="text-steel-200">التنفيذ في الموقع</strong>. يمتلك خبرة في التصميم الإنشائي واستمارات الورش والإشراف على التنفيذ مع دقة عالية في الحلول الهندسية.',
+          cv: 'تنزيل السيرة',
+          contact: 'تواصل معي',
+          scroll: 'مرر للأسفل',
+          stat1: 'مباني<br>تم إشرافها',
+          stat2: 'فريق<br>تم قيادته',
+          stat3: 'أعلى طوابق<br>تم تنفيذها'
+        },
+        about: { eyebrow: 'من أنا', title: 'نبذة عني', intro1: 'أنا <strong class="text-steel-100">مهندس مدني</strong> متخصص في التحليل الإنشائي والتنفيذ الميداني، مع خبرة عملية في الإشراف على مبانٍ سكنية تصل إلى 10 طوابق وقيادة فرق ميدانية تضم أكثر من 10 أفراد.', intro2: 'يُبنى نهجي الهندسي على ثلاثة أعمدة: <span class="text-amber-400 font-semibold">الدقة</span> في الحسابات الإنشائية، و<span class="text-amber-400 font-semibold">الضبط</span> في مراجعة الرسومات، و<span class="text-amber-400 font-semibold">الانضباط</span> في موقع البناء — لضمان تحقيق كل مشروع لهدفه التصميمي ومعايير السلامة.', intro3: 'كما أمتلك أساسيات في <strong class="text-steel-100">الأمن الرقمي وسيبرانيات الويب</strong> مما يمنحني منظورًا فريدًا في التحول الرقمي للبناء.', leadership: 'مهارات القيادة', bullet1: 'قائد فريق – تنسيق فرق متعددة من التحليل إلى التسليم', bullet2: 'إدارة موقع تشمل 10+ عاملًا عبر مشاريع سكنية', bullet3: 'توزيع المهام ومتابعة التقدم ومراقبة الجودة في المواقع النشطة', bullet4: 'تنسيق مشترك بين التصميم الإنشائي وأعمال الرسومات التنفيذية' },
+        education: { eyebrow: 'الخلفية الأكاديمية', title: 'التعليم', degreeTitle: 'بكالوريوس في الهندسة المدنية', degreeSubtitle: 'جامعة المنصورة — مصر', projectTitle: 'تصميم مبنى متعدد الطوابق', projectTag: 'قائد الفريق', projectItem1: 'تصميم مبانٍ متعددة الطوابق باستخدام ETABS وSAFE', projectItem2: 'قيادة فريق من 2 أعضاء مع إدارة كاملة للمهمات', projectItem3: 'مراجعة الحسابات الإنشائية والتحقق من دقتها', projectItem4: 'التنسيق بين التحليل الإنشائي والتصميم والرسومات التنفيذية' },
+        experience: {
+          eyebrow: 'مسار العمل',
+          title: 'الخبرة المهنية',
+          // أكتب نص الخبرة هنا بالعربية
+          entry1Title: 'مهندس تصميم انشائي ',
+          entry1Role: 'فؤادة جروب',
+          entry2Title: 'تدريب مهندس موقع إنشائي',
+          entry2Role: 'شركة قاصد خير',
+          entry3Title: 'تدريب موقع  – مشاريع سكني',
+          entry3Role: 'مكتب العزيز للهندسة'
+        },
+        projects: { eyebrow: 'معرض المشاريع', title: 'أعمال مختارة', description: 'مزيج من التصميم الإنشائي والتنفيذ في الموقع ونقل المعرفة — معروض من خلال أعمال هندسية عملية.' },
+        skills: { eyebrow: 'القدرات', title: 'المهارات والخبرة', software: 'البرامج الإنشائية', engineering: 'الهندسة الإنشائية', site: 'مهارات الموقع', cybersecurity: 'الأمن السيبراني', soft: 'الكفاءات المهنية' },
+        contact: { eyebrow: 'لنُبنِ معًا', title: 'تواصل معي', description: 'سواء كان مشروعًا إنشائيًا أو استشارة أو تعاونًا — يسعدني أن أسمع عنك.', formTitle: 'التواصل المباشر', whatsappTitle: 'واتساب', whatsappDesc: 'أرسل رسالة مباشرة وسريعة.', messengerTitle: 'فيسبوك ماسنجر', messengerDesc: 'راسلني عبر ماسنجر فيسبوك.', emailTitle: 'البريد الإلكتروني', emailDesc: 'mohamedelbahdli@gmail.com', send: 'إرسال الرسالة', direct: 'التواصل المباشر', social: 'التواصل المهني', email: 'البريد الإلكتروني', phone: 'الهاتف / واتساب', location: 'الموقع', messageSent: '✓ تم إرسال الرسالة! سأعود إليك قريبًا.' },
+        footer: { text: 'محمد البحدلي – مهندس مدني', note: 'مصمم بدقة' }
+      }
+    };
+    let activeLanguage = 'en';
+    let activeProjectFilter = 'all';
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el && value) {
+        el.innerHTML = value;
+      }
+    }
+
+    function updateLanguage(lang) {
+      activeLanguage = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      }
+      const heroLayout = document.getElementById('hero-layout');
+      if (heroLayout) {
+        heroLayout.classList.toggle('lg:flex-row-reverse', lang === 'ar');
+      }
+
+      languageButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+
+      const t = data[lang];
+      setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-contact', t.nav.contact); setText('nav-hire', t.nav.hire); setText('nav-hire-mobile', t.nav.hire); setText('nav-hire-mobile-header', t.nav.hire);
+      setText('nav-about-mobile', t.nav.about); setText('nav-experience-mobile', t.nav.experience); setText('nav-skills-mobile', t.nav.skills); setText('nav-contact-mobile', t.nav.contact);
+      setText('hero-eyebrow', t.hero.eyebrow); setText('hero-title', t.hero.title); setText('hero-subtitle', t.hero.subtitle); setText('hero-cv', t.hero.cv); setText('hero-contact', t.hero.contact); setText('hero-scroll', t.hero.scroll); setText('hero-stat-1-label', t.hero.stat1); setText('hero-stat-2-label', t.hero.stat2); setText('hero-stat-3-label', t.hero.stat3);
+      setText('about-eyebrow', t.about.eyebrow); setText('about-title', t.about.title); setText('about-p1', t.about.intro1); setText('about-p2', t.about.intro2); setText('about-p3', t.about.intro3); setText('leadership-title', t.about.leadership); setText('leadership-1', t.about.bullet1); setText('leadership-2', t.about.bullet2); setText('leadership-3', t.about.bullet3); setText('leadership-4', t.about.bullet4);
+      setText('education-eyebrow', t.education.eyebrow); setText('education-title', t.education.title); setText('education-title-card', t.education.degreeTitle); setText('education-subtitle-card', t.education.degreeSubtitle); setText('graduation-title', t.education.projectTitle); setText('graduation-tag', t.education.projectTag); setText('graduation-item-1', t.education.projectItem1); setText('graduation-item-2', t.education.projectItem2); setText('graduation-item-3', t.education.projectItem3); setText('graduation-item-4', t.education.projectItem4);
+      setText('experience-eyebrow', t.experience.eyebrow); setText('experience-title', t.experience.title); setText('experience-entry-1-title', t.experience.entry1Title); setText('experience-entry-1-role', t.experience.entry1Role); setText('experience-entry-2-title', t.experience.entry2Title); setText('experience-entry-2-role', t.experience.entry2Role); setText('experience-entry-3-title', t.experience.entry3Title); setText('experience-entry-3-role', t.experience.entry3Role);
+      setText('projects-eyebrow', t.projects.eyebrow); setText('projects-title', t.projects.title); setText('projects-description', t.projects.description);
+      setText('skills-eyebrow', t.skills.eyebrow); setText('skills-title', t.skills.title); setText('skills-software', t.skills.software); setText('skills-engineering', t.skills.engineering); setText('skills-site', t.skills.site); setText('skills-cyber', t.skills.cybersecurity); setText('skills-soft', t.skills.soft);
+      setText('contact-eyebrow', t.contact.eyebrow); setText('contact-title', t.contact.title); setText('contact-description', t.contact.description); setText('contact-form-title', t.contact.formTitle); setText('contact-whatsapp-title', t.contact.whatsappTitle); setText('contact-whatsapp-desc', t.contact.whatsappDesc); setText('contact-messenger-title', t.contact.messengerTitle); setText('contact-messenger-desc', t.contact.messengerDesc); setText('contact-email-title', t.contact.emailTitle); setText('contact-email-desc', t.contact.emailDesc); setText('contact-direct', t.contact.direct); setText('contact-social', t.contact.social); setText('contact-email', t.contact.email); setText('contact-phone', t.contact.phone); setText('contact-location', t.contact.location); setText('form-success', t.contact.messageSent);
+      setText('footer-text', t.footer.text); setText('footer-note', t.footer.note);
+
+      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+        const value = lang === 'en' ? el.dataset.en : el.dataset.ar;
+        if (value) {
+          el.textContent = value;
+        }
+      });
+
+      resetTypewriter(lang);
+    }
+
+    function updateProjectFilter(category) {
+      activeProjectFilter = category;
+      projectFilterButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.category === category));
+      projectCards.forEach(card => {
+        const matches = category === 'all' || card.dataset.category === category;
+        card.classList.toggle('hidden', !matches);
+      });
+    }
+
+    function initProjectGalleries() {
+      const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      document.querySelectorAll('.project-gallery').forEach(gallery => {
+        const mainImage = gallery.querySelector('.project-gallery-main img');
+        const indicatorButtons = Array.from(gallery.querySelectorAll('.project-gallery-indicator'));
+        const prevButton = gallery.querySelector('.project-gallery-control--prev');
+        const nextButton = gallery.querySelector('.project-gallery-control--next');
+        const images = indicatorButtons.map(btn => btn.dataset.src);
+        const alts = indicatorButtons.map(btn => btn.dataset.alt || mainImage.alt);
+        let current = 0;
+        let interval = null;
+
+        const setActiveSlide = index => {
+          if (!images[index]) return;
+          current = index;
+          mainImage.src = images[current];
+          mainImage.alt = alts[current] || mainImage.alt;
+          indicatorButtons.forEach((btn, idx) => btn.classList.toggle('active', idx === current));
+        };
+
+        const rotate = () => {
+          setActiveSlide((current + 1) % images.length);
+        };
+
+        const startRotation = () => {
+          if (interval || images.length <= 1) return;
+          interval = setInterval(rotate, 2800);
+        };
+
+        const stopRotation = () => {
+          if (!interval) return;
+          clearInterval(interval);
+          interval = null;
+        };
+
+        indicatorButtons.forEach((btn, idx) => {
+          btn.addEventListener('click', () => {
+            setActiveSlide(idx);
+            stopRotation();
+          });
+        });
+
+        if (prevButton && nextButton) {
+          prevButton.addEventListener('click', () => {
+            setActiveSlide((current - 1 + images.length) % images.length);
+            stopRotation();
+          });
+          nextButton.addEventListener('click', () => {
+            setActiveSlide((current + 1) % images.length);
+            stopRotation();
+          });
+        }
+
+        if (hasHover) {
+          gallery.addEventListener('mouseenter', startRotation);
+          gallery.addEventListener('mouseleave', stopRotation);
+        } else {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                startRotation();
+              } else {
+                stopRotation();
+              }
+            });
+          }, { threshold: 0.4 });
+          observer.observe(gallery);
+        }
+
+        setActiveSlide(0);
+      });
+    }
+
+    const roleSets = {
+      en: [
+        'Structural Design Engineer',
+        'Site Supervision Engineer',
+        'ETABS & SAFE Specialist',
+        'Reinforced Concrete Designer',
+        'Construction Team Leader'
+      ],
+      ar: [
+        'مهندس تصميم إنشائي',
+        'مهندس إشراف موقع',
+        'متخصص ETABS و SAFE',
+        'مصمم خرسانة مسلحة',
+        'قائد فريق تشييد'
+      ]
+    };
+    let typeRoles = roleSets.en;
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    const tw = document.getElementById('typewriter');
+
+    function resetTypewriter(lang) {
+      typeRoles = roleSets[lang];
+      roleIdx = 0; charIdx = 0; deleting = false; tw.textContent = '';
+      setTimeout(type, 400);
+    }
+
+    function type() {
+      const current = typeRoles[roleIdx];
+      if (!deleting) {
+        tw.textContent = current.slice(0, ++charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(type, 1800);
+          return;
+        }
+      } else {
+        tw.textContent = current.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % typeRoles.length;
+        }
+      }
+      setTimeout(type, deleting ? 45 : 70);
+    }
+
+    languageButtons.forEach(btn => {
+      btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
+    });
+
+    projectFilterButtons.forEach(btn => {
+      btn.addEventListener('click', () => updateProjectFilter(btn.dataset.category));
+    });
+
+    updateLanguage(activeLanguage);
+    updateProjectFilter(activeProjectFilter);
+    initProjectGalleries();
+
+    /* ── Smart WhatsApp form redirection ── */
+    const whatsAppPhoneNumber = '201028211712';
+
+    function getCurrentLanguage() {
+      return activeLanguage || document.documentElement.lang || (document.documentElement.dir === 'rtl' ? 'ar' : 'en');
+    }
+
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
+    }
+
+    function getLocalizedFormText(lang) {
+      return lang === 'ar'
+        ? {
+          emptyFields: 'يرجى ملء جميع الحقول قبل الإرسال.',
+          labels: {
+            name: 'الاسم',
+            email: 'البريد',
+            subject: 'الموضوع',
+            message: 'نص الرسالة'
+          }
+        }
+        : {
+          emptyFields: 'Please fill in all fields before sending.',
+          labels: {
+            name: 'Name',
+            email: 'Email',
+            subject: 'Subject',
+            message: 'Message'
+          }
+        };
+    }
+
+    updateLanguage(activeLanguage);
+    updateProjectFilter(activeProjectFilter);
+  </script>
+</body>
+
+</html>
