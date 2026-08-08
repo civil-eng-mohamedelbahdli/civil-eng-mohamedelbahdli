@@ -105,6 +105,18 @@
       width: 100%;
     }
 
+    .nav-link-highlight {
+      color: #F0B640;
+      font-weight: 700;
+      padding: 0 .2rem;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      margin-right: .25rem;
+      text-shadow: 0 0 8px rgba(240, 182, 64, .16);
+    }
+
     .nav-scrolled {
       background: rgba(11, 26, 47, .96) !important;
       backdrop-filter: blur(12px);
@@ -729,28 +741,21 @@
       <!-- Desktop links -->
       <div class="hidden md:flex items-center gap-3 lg:gap-4">
         <a href="#about" id="nav-about" class="nav-link">About</a>
-        <a href="#experience" id="nav-experience" class="nav-link">Experience</a>
+        <a href="#experience" id="nav-experience" class="nav-link nav-link-highlight">Experience</a>
         <a href="#skills" id="nav-skills" class="nav-link">Skills</a>
         <a href="#contact" id="nav-contact" class="nav-link">Contact</a>
         <div class="lang-toggle-wrap">
-          <button class="project-lang-btn lang-toggle-btn active" data-lang="en"
-            aria-label="Switch to English">EN</button>
-          <button class="project-lang-btn lang-toggle-btn" data-lang="ar"
-            aria-label="التبديل إلى العربية">العربية</button>
+          <button id="lang-toggle-btn" class="project-lang-btn lang-toggle-btn active" data-lang="en"
+            aria-label="Switch to Arabic">EN</button>
         </div>
-        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire" class="btn-amber text-xs py-2 px-4">Hire Me</a>
       </div>
 
       <!-- Mobile header actions -->
       <div class="flex items-center gap-2 md:hidden">
         <div class="lang-toggle-wrap">
-          <button class="project-lang-btn lang-toggle-btn active" data-lang="en"
-            aria-label="Switch to English">EN</button>
-          <button class="project-lang-btn lang-toggle-btn" data-lang="ar"
-            aria-label="التبديل إلى العربية">العربية</button>
+          <button id="lang-toggle-btn-mobile" class="project-lang-btn lang-toggle-btn active" data-lang="en"
+            aria-label="Switch to Arabic">EN</button>
         </div>
-        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire-mobile-header" class="btn-amber text-xs py-2 px-4">Hire
-          Me</a>
         <button id="menu-btn" class="text-steel-300 hover:text-amber-400 transition-colors p-1"
           aria-label="Toggle menu">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -767,11 +772,10 @@
     <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
       <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-4 border-t border-steel-400 border-opacity-10 mt-3">
         <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
-        <a href="#experience" id="nav-experience-mobile" class="nav-link" onclick="closeMobile()">Experience</a>
+        <a href="#experience" id="nav-experience-mobile" class="nav-link nav-link-highlight"
+          onclick="closeMobile()">Experience</a>
         <a href="#skills" id="nav-skills-mobile" class="nav-link" onclick="closeMobile()">Skills</a>
         <a href="#contact" id="nav-contact-mobile" class="nav-link" onclick="closeMobile()">Contact</a>
-        <a href="mailto:mohamedelbahdli@gmail.com" id="nav-hire-mobile"
-          class="btn-amber self-start text-xs py-2 px-4">Hire Me</a>
       </div>
     </div>
   </nav>
@@ -1691,7 +1695,7 @@
     // أضف أو غيّر أي نص لاحقًا من هذا الكائن فقط دون لمس بنية الصفحة
     const data = {
       en: {
-        nav: { about: 'About', experience: 'Experience', skills: 'Skills', contact: 'Contact', hire: 'Hire Me' },
+        nav: { about: 'About', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
         hero: {
           eyebrow: 'Structural Civil Engineer',
           title: 'MOHAMAD<br><span class="amber-line">ELBAHDLI</span>',
@@ -1722,7 +1726,7 @@
         footer: { text: 'Mohamad Elbahdli – Civil Engineer', note: 'Designed with Mohamed Elbahdli' }
       },
       ar: {
-        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', contact: 'التواصل', hire: 'تعاون' },
+        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', contact: 'التواصل' },
         hero: {
           eyebrow: 'مهندس مدني إنشائي',
           title: 'محمد<br><span class="amber-line">البهدلي</span>',
@@ -1777,10 +1781,15 @@
         heroLayout.classList.toggle('lg:flex-row-reverse', lang === 'ar');
       }
 
-      languageButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      languageButtons.forEach(btn => {
+        btn.classList.toggle('active', true);
+        btn.dataset.lang = lang;
+        btn.textContent = lang === 'en' ? 'EN' : 'العربية';
+        btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'Switch to English');
+      });
 
       const t = data[lang];
-      setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-contact', t.nav.contact); setText('nav-hire', t.nav.hire); setText('nav-hire-mobile', t.nav.hire); setText('nav-hire-mobile-header', t.nav.hire);
+      setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-contact', t.nav.contact);
       setText('nav-about-mobile', t.nav.about); setText('nav-experience-mobile', t.nav.experience); setText('nav-skills-mobile', t.nav.skills); setText('nav-contact-mobile', t.nav.contact);
       setText('hero-eyebrow', t.hero.eyebrow); setText('hero-title', t.hero.title); setText('hero-subtitle', t.hero.subtitle); setText('hero-cv', t.hero.cv); setText('hero-contact', t.hero.contact); setText('hero-scroll', t.hero.scroll); setText('hero-stat-1-label', t.hero.stat1); setText('hero-stat-2-label', t.hero.stat2); setText('hero-stat-3-label', t.hero.stat3);
       setText('about-eyebrow', t.about.eyebrow); setText('about-title', t.about.title); setText('about-p1', t.about.intro1); setText('about-p2', t.about.intro2); setText('about-p3', t.about.intro3); setText('leadership-title', t.about.leadership); setText('leadership-1', t.about.bullet1); setText('leadership-2', t.about.bullet2); setText('leadership-3', t.about.bullet3); setText('leadership-4', t.about.bullet4);
@@ -1929,7 +1938,7 @@
     }
 
     languageButtons.forEach(btn => {
-      btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
+      btn.addEventListener('click', () => updateLanguage(activeLanguage === 'en' ? 'ar' : 'en'));
     });
 
     projectFilterButtons.forEach(btn => {
