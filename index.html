@@ -117,6 +117,69 @@
       text-shadow: 0 0 8px rgba(240, 182, 64, .16);
     }
 
+    .services-dropdown {
+      position: relative;
+    }
+
+    .services-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .services-trigger svg {
+      transition: transform .2s ease;
+    }
+
+    .services-dropdown.open .services-trigger svg,
+    .services-dropdown:focus-within .services-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .services-menu {
+      position: absolute;
+      top: calc(100% + .85rem);
+      left: 50%;
+      min-width: 11.5rem;
+      padding: .45rem;
+      border: 1px solid rgba(143, 168, 200, .18);
+      border-radius: .65rem;
+      background: rgba(11, 26, 47, .98);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -.4rem);
+      transition: opacity .2s ease, transform .2s ease, visibility .2s;
+    }
+
+    .services-dropdown:hover .services-menu,
+    .services-dropdown:focus-within .services-menu,
+    .services-dropdown.open .services-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .services-menu a {
+      display: block;
+      padding: .65rem .75rem;
+      border-radius: .4rem;
+      color: #B0C4DE;
+      font-size: .8rem;
+      font-weight: 500;
+      transition: color .2s, background .2s;
+    }
+
+    .services-menu a:hover,
+    .services-menu a:focus-visible {
+      color: #F0B640;
+      background: rgba(232, 160, 32, .1);
+      outline: none;
+    }
+
     .nav-scrolled {
       background: rgba(11, 26, 47, .96) !important;
       backdrop-filter: blur(12px);
@@ -498,6 +561,20 @@
       transform: translateY(-2px);
     }
 
+    .service-action {
+      width: 100%;
+      min-height: 3.25rem;
+      justify-content: center;
+      padding: .7rem 1rem;
+      text-align: center;
+      line-height: 1.35;
+      white-space: normal;
+    }
+
+    .service-action span {
+      max-width: 100%;
+    }
+
     /* ── Language toggle and hero portrait ── */
     .lang-toggle-wrap {
       display: inline-flex;
@@ -694,12 +771,48 @@
     }
 
     #mobile-menu.open {
-      max-height: 400px;
+      max-height: 560px;
+    }
+
+    .mobile-services summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .mobile-services summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-services summary svg {
+      transition: transform .2s ease;
+    }
+
+    .mobile-services[open] summary svg {
+      transform: rotate(180deg);
     }
 
     /* ── Footer ── */
     footer {
       border-top: 1px solid rgba(143, 168, 200, .1);
+    }
+
+    .footer-social-link {
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(143, 168, 200, .2);
+      border-radius: .55rem;
+      color: #8FA8C8;
+      transition: color .2s, border-color .2s, background .2s, transform .2s;
+    }
+
+    .footer-social-link:hover {
+      color: #F0B640;
+      border-color: rgba(232, 160, 32, .5);
+      background: rgba(232, 160, 32, .1);
+      transform: translateY(-2px);
     }
 
     /* ── Reduced motion ── */
@@ -742,8 +855,21 @@
       <div class="hidden md:flex items-center gap-3 lg:gap-4">
         <a href="#about" id="nav-about" class="nav-link">About</a>
         <a href="#experience" id="nav-experience" class="nav-link nav-link-highlight">Experience</a>
-        <a href="#skills" id="nav-skills" class="nav-link">Skills</a>
-        <a href="#contact" id="nav-contact" class="nav-link">Contact</a>
+        <div class="services-dropdown" id="services-dropdown">
+          <button id="services-trigger" class="nav-link services-trigger" type="button" aria-expanded="false"
+            aria-controls="services-menu">
+            <span id="nav-services">Services</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
+            </svg>
+          </button>
+          <div id="services-menu" class="services-menu" role="menu" aria-labelledby="services-trigger">
+            <a id="nav-service-client" href="#client" role="menuitem">Client</a>
+            <a id="nav-service-learner" href="#learner" role="menuitem">Learner</a>
+            <a id="nav-service-fellow-engineer" href="#fellow-engineer" role="menuitem">Fellow Engineer</a>
+          </div>
+        </div>
         <div class="lang-toggle-wrap">
           <button id="lang-toggle-btn" class="project-lang-btn lang-toggle-btn active" data-lang="en"
             aria-label="Switch to Arabic">EN</button>
@@ -774,8 +900,21 @@
         <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
         <a href="#experience" id="nav-experience-mobile" class="nav-link nav-link-highlight"
           onclick="closeMobile()">Experience</a>
-        <a href="#skills" id="nav-skills-mobile" class="nav-link" onclick="closeMobile()">Skills</a>
-        <a href="#contact" id="nav-contact-mobile" class="nav-link" onclick="closeMobile()">Contact</a>
+        <details class="mobile-services">
+          <summary class="nav-link flex items-center justify-between">
+            <span id="nav-services-mobile">Services</span>
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
+            </svg>
+          </summary>
+          <div class="mt-3 ml-3 pl-4 border-l border-steel-400 border-opacity-20 flex flex-col gap-3">
+            <a id="nav-service-client-mobile" href="#client" class="nav-link text-xs" onclick="closeMobile()">Client</a>
+            <a id="nav-service-learner-mobile" href="#learner" class="nav-link text-xs" onclick="closeMobile()">Learner</a>
+            <a id="nav-service-fellow-engineer-mobile" href="#fellow-engineer" class="nav-link text-xs"
+              onclick="closeMobile()">Fellow Engineer</a>
+          </div>
+        </details>
       </div>
     </div>
   </nav>
@@ -834,7 +973,7 @@
           <div id="hero-media-mobile" class="w-full max-w-[320px] mx-auto lg:hidden mt-8 mb-8 reveal reveal-delay-2">
             <div class="hero-photo-shell group">
               <div class="hero-photo-frame">
-                <img class="hero-photo" src="assets/images/hero-photo.jpg"
+                <img class="hero-photo" src="assets/images/mohamed-images/hero-photo.jpg"
                   alt="Professional portrait of Mohamad Elbahdli" />
               </div>
               <div class="hero-badge">
@@ -851,12 +990,12 @@
               </svg>
               Download CV
             </a>
-            <a href="#contact" id="hero-contact" class="btn-ghost">
+            <a href="#services" id="hero-contact" class="btn-ghost">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              Get in Touch
+              Explore Services
             </a>
           </div>
 
@@ -886,7 +1025,7 @@
         <div id="hero-media" class="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end reveal reveal-delay-2">
           <div class="hero-photo-shell group">
             <div class="hero-photo-frame">
-              <img class="hero-photo" src="assets/images/hero-photo.jpg"
+              <img class="hero-photo" src="assets/images/mohamed-images/hero-photo.jpg"
                 alt="Professional portrait of Mohamad Elbahdli" />
             </div>
             <div class="hero-badge">
@@ -1192,7 +1331,7 @@
         <article class="project-card reveal" data-category="structural">
           <div class="project-media project-gallery">
             <div class="project-gallery-main">
-              <img src="assets/images/project-0-1.jpg"
+              <img src="assets/images/selected-work/project-0-1.jpg"
                 alt="Tower project with basement, ground floor, and 13 repeated floors" />
               <div class="project-gallery-controls">
                 <button type="button" class="project-gallery-control project-gallery-control--prev"
@@ -1216,10 +1355,10 @@
             </div>
             <div class="project-gallery-indicators">
               <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/project-0-1.jpg"
+                data-src="assets/images/selected-work/project-0-1.jpg"
                 data-alt="Tower project with basement and 13 repeated floors"></button>
               <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/project-0-2.jpg" data-alt="Project 0 tower site view"></button>
+                data-src="assets/images/selected-work/project-0-2.jpg" data-alt="Project 0 tower site view"></button>
             </div>
           </div>
         </article>
@@ -1228,7 +1367,7 @@
         <article class="project-card reveal reveal-delay-2" data-category="training">
           <div class="project-media project-gallery">
             <div class="project-gallery-main">
-              <img src="assets/images/project-1.jpg" alt="Villa construction training project" />
+              <img src="assets/images/selected-work/project-1.jpg" alt="Villa construction training project" />
               <div class="project-gallery-controls">
                 <button type="button" class="project-gallery-control project-gallery-control--prev"
                   aria-label="Previous image">‹</button>
@@ -1248,7 +1387,8 @@
             </div>
             <div class="project-gallery-indicators">
               <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/project-1.jpg" data-alt="Villa construction training project"></button>
+                data-src="assets/images/selected-work/project-1.jpg"
+                data-alt="Villa construction training project"></button>
             </div>
           </div>
         </article>
@@ -1256,7 +1396,7 @@
         <article class="project-card reveal reveal-delay-3" data-category="site">
           <div class="project-media project-gallery">
             <div class="project-gallery-main">
-              <img src="assets/images/project-2-1.jpg" alt="Residential tower supervision project" />
+              <img src="assets/images/selected-work/project-2-1.jpg" alt="Residential tower supervision project" />
               <div class="project-gallery-controls">
                 <button type="button" class="project-gallery-control project-gallery-control--prev"
                   aria-label="Previous image">‹</button>
@@ -1277,13 +1417,17 @@
             </div>
             <div class="project-gallery-indicators">
               <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/project-2-1.jpg" data-alt="Residential tower supervision project"></button>
+                data-src="assets/images/selected-work/project-2-1.jpg"
+                data-alt="Residential tower supervision project"></button>
               <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/project-2-2.jpg" data-alt="Residential tower site progress"></button>
+                data-src="assets/images/selected-work/project-2-2.jpg"
+                data-alt="Residential tower site progress"></button>
               <button type="button" class="project-gallery-indicator" data-index="2"
-                data-src="assets/images/project-2-3.jpg" data-alt="Reinforced concrete slab construction"></button>
+                data-src="assets/images/selected-work/project-2-3.jpg"
+                data-alt="Reinforced concrete slab construction"></button>
               <button type="button" class="project-gallery-indicator" data-index="3"
-                data-src="assets/images/project-2-4.jpg" data-alt="Tower project site supervision"></button>
+                data-src="assets/images/selected-work/project-2-4.jpg"
+                data-alt="Tower project site supervision"></button>
             </div>
           </div>
         </article>
@@ -1291,7 +1435,8 @@
         <article class="project-card reveal reveal-delay-4" data-category="training">
           <div class="project-media project-gallery">
             <div class="project-gallery-main">
-              <img src="assets/images/project-3-1.JPG" alt="Commercial and residential complex supervision" />
+              <img src="assets/images/selected-work/project-3-1.JPG"
+                alt="Commercial and residential complex supervision" />
               <div class="project-gallery-controls">
                 <button type="button" class="project-gallery-control project-gallery-control--prev"
                   aria-label="Previous image">‹</button>
@@ -1311,14 +1456,17 @@
             </div>
             <div class="project-gallery-indicators">
               <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/project-3-1.JPG"
+                data-src="assets/images/selected-work/project-3-1.JPG"
                 data-alt="Commercial and residential complex supervision"></button>
               <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/project-3-2.jpg" data-alt="Complex project construction progress"></button>
+                data-src="assets/images/selected-work/project-3-2.jpg"
+                data-alt="Complex project construction progress"></button>
               <button type="button" class="project-gallery-indicator" data-index="2"
-                data-src="assets/images/project-3-3.jpg" data-alt="Post-tension slab supervision"></button>
+                data-src="assets/images/selected-work/project-3-3.jpg"
+                data-alt="Post-tension slab supervision"></button>
               <button type="button" class="project-gallery-indicator" data-index="3"
-                data-src="assets/images/project-3-4.jpg" data-alt="Shop and residential complex site"></button>
+                data-src="assets/images/selected-work/project-3-4.jpg"
+                data-alt="Shop and residential complex site"></button>
             </div>
           </div>
         </article>
@@ -1546,80 +1694,83 @@
   <!-- ════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════ -->
-  <section id="contact" class="py-24 px-6 md:px-12 blueprint-bg">
+  <!-- SERVICES -->
+  <section id="services" class="py-24 px-6 md:px-12" style="background:#0D1E36">
     <div class="max-w-6xl mx-auto">
-
       <div class="text-center mb-14">
-        <p id="contact-eyebrow" class="section-eyebrow mb-3 reveal">Let's Build Together</p>
-        <h2 id="contact-title" class="section-title reveal reveal-delay-1">Get in Touch</h2>
-        <p id="contact-description" class="text-steel-400 text-sm mt-3 max-w-md mx-auto reveal reveal-delay-2">
-          Whether it's a structural project, a consultation, or a collaboration — I'd love to hear from you.
+        <p id="services-eyebrow" class="section-eyebrow mb-3 reveal">How I Can Help</p>
+        <h2 id="services-title" class="section-title reveal reveal-delay-1">Services & Collaboration</h2>
+        <p id="services-description" class="text-steel-400 text-sm mt-3 max-w-2xl mx-auto reveal reveal-delay-2">
+          Whether you need engineering support, want to develop your skills, or are looking to collaborate, there is a path for you.
         </p>
       </div>
 
-      <div class="grid gap-6">
-        <div class="card-glass p-8 reveal">
-          <h3 id="contact-form-title" class="text-steel-100 font-semibold mb-6">Direct Contact</h3>
-          <div class="grid gap-4 md:grid-cols-2">
-            <a href="https://wa.me/201028211712" target="_blank" rel="noopener noreferrer"
-              class="contact-action-card card-glass p-8 flex flex-col justify-between gap-6">
-              <div
-                class="contact-action-icon w-20 h-20 flex items-center justify-center rounded-2xl bg-black/10 border border-white/10">
-                <i class="fab fa-whatsapp fa-3x text-emerald-500"></i>
-              </div>
-              <div>
-                <p id="contact-whatsapp-title" class="text-steel-100 font-semibold mb-2">WhatsApp</p>
-                <p id="contact-whatsapp-desc" class="text-steel-400 text-sm">Send a direct message instantly.</p>
-              </div>
-            </a>
-            <a href="https://www.facebook.com/eng.mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
-              class="contact-action-card card-glass p-8 flex flex-col justify-between gap-6">
-              <div
-                class="contact-action-icon w-20 h-20 flex items-center justify-center rounded-2xl bg-black/10 border border-white/10">
-                <i class="fab fa-facebook-messenger fa-3x text-sky-400"></i>
-              </div>
-              <div>
-                <p id="contact-messenger-title" class="text-steel-100 font-semibold mb-2">Messenger</p>
-                <p id="contact-messenger-desc" class="text-steel-400 text-sm">Send a message on Facebook Messenger.</p>
-              </div>
-            </a>
+      <div class="grid gap-6 lg:grid-cols-3">
+        <article id="client" class="card-glass p-7 reveal scroll-mt-28 flex flex-col">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+            style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+            <i class="fas fa-building text-amber-400 text-xl"></i>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center mt-10 mx-auto max-w-lg">
-            <a href="https://mostaql.com/u/Mo7amed_Elmorsy" target="_blank" rel="noopener noreferrer"
-              class="social-icon social-mostaql" aria-label="Mostaql">
-              <i class="fas fa-briefcase fa-lg"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/eng-mohamed-elbahdli/" target="_blank" rel="noopener noreferrer"
-              class="social-icon social-linkedin" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in fa-lg"></i>
-            </a>
-            <a href="https://www.youtube.com/@eng.mohamed-elbahdli/videos" target="_blank" rel="noopener noreferrer"
-              class="social-icon social-youtube" aria-label="YouTube">
-              <i class="fab fa-youtube fa-lg"></i>
-            </a>
-            <a href="https://github.com/mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
-              class="social-icon social-github" aria-label="GitHub">
-              <i class="fab fa-github fa-lg"></i>
-            </a>
+          <p id="client-label" class="section-eyebrow mb-2">For Clients</p>
+          <h3 id="client-title" class="text-steel-100 text-xl font-semibold mb-3">Engineering Support You Can Rely On</h3>
+          <p id="client-description" class="text-steel-400 text-sm leading-relaxed mb-6">
+            Get support with structural design, drawing review, and site-execution consultations for your project.
+          </p>
+          <a id="client-action" href="https://wa.me/201028211712" target="_blank" rel="noopener noreferrer"
+            class="btn-amber service-action text-xs mt-auto"><span id="client-action-text">Discuss Your Project</span> <i class="fab fa-whatsapp text-sm"></i></a>
+        </article>
+
+        <article id="learner" class="card-glass p-7 reveal reveal-delay-1 scroll-mt-28 flex flex-col">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+            style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+            <i class="fas fa-graduation-cap text-amber-400 text-xl"></i>
           </div>
-        </div>
+          <p id="learner-label" class="section-eyebrow mb-2">For Learners</p>
+          <h3 id="learner-title" class="text-steel-100 text-xl font-semibold mb-3">Learn Through Practical Engineering</h3>
+          <p id="learner-description" class="text-steel-400 text-sm leading-relaxed mb-6">
+            Explore practical engineering content, project-based insights, and learning resources for your next step.
+          </p>
+          <a id="learner-action" href="https://www.youtube.com/@eng.mohamed-elbahdli/videos" target="_blank"
+            rel="noopener noreferrer" class="btn-ghost service-action text-xs mt-auto"><span id="learner-action-text">Explore Learning Content</span> <i class="fab fa-youtube text-sm"></i></a>
+        </article>
+
+        <article id="fellow-engineer" class="card-glass p-7 reveal reveal-delay-2 scroll-mt-28 flex flex-col">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+            style="background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3)">
+            <i class="fas fa-people-group text-amber-400 text-xl"></i>
+          </div>
+          <p id="fellow-label" class="section-eyebrow mb-2">For Fellow Engineers</p>
+          <h3 id="fellow-title" class="text-steel-100 text-xl font-semibold mb-3">Build Better, Together</h3>
+          <p id="fellow-description" class="text-steel-400 text-sm leading-relaxed mb-6">
+            Connect to exchange expertise, review drawings, and explore meaningful engineering collaborations.
+          </p>
+          <a id="fellow-action" href="https://www.linkedin.com/in/eng-mohamed-elbahdli/" target="_blank"
+            rel="noopener noreferrer" class="btn-ghost service-action text-xs mt-auto"><span id="fellow-action-text">Connect on LinkedIn</span> <i class="fab fa-linkedin-in text-sm"></i></a>
+        </article>
       </div>
     </div>
   </section>
 
 
-
   <!-- ════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════ -->
-  <footer class="py-8 px-6 md:px-12" style="background:#0B1A2F">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="py-7 px-6 md:px-12" style="background:#0B1A2F">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
       <div class="flex items-center gap-2.5">
         <div class="w-7 h-7 rounded flex items-center justify-center" style="background:#E8A020">
           <span
             style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.75rem">ME</span>
         </div>
         <span id="footer-text" class="text-steel-400 text-xs">Mohamad Elbahdli – Civil Engineer</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-2" aria-label="Social and professional links">
+        <a href="https://wa.me/201028211712" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/eng.mohamedelbahdli/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://mostaql.com/u/Mo7amed_Elmorsy" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Mostaql"><i class="fas fa-briefcase"></i></a>
+        <a href="https://www.linkedin.com/in/eng-mohamed-elbahdli/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@eng.mohamed-elbahdli/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://github.com/mohamedelbahdli/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
       <p id="footer-note" class="text-steel-400 text-xs">
         © <span id="year"></span> · Designed with Mohamed Elbahdli
@@ -1664,6 +1815,35 @@
       iconClose.classList.add('hidden');
     }
 
+    /* Services dropdown */
+    const servicesDropdown = document.getElementById('services-dropdown');
+    const servicesTrigger = document.getElementById('services-trigger');
+
+    function closeServicesDropdown() {
+      if (servicesDropdown && servicesTrigger) {
+        servicesDropdown.classList.remove('open');
+        servicesTrigger.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    if (servicesDropdown && servicesTrigger) {
+      servicesTrigger.addEventListener('click', () => {
+        const isOpen = servicesDropdown.classList.toggle('open');
+        servicesTrigger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', event => {
+        if (!servicesDropdown.contains(event.target)) closeServicesDropdown();
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeServicesDropdown();
+          servicesTrigger.focus();
+        }
+      });
+    }
+
     /* ── Reveal on scroll ── */
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
@@ -1695,13 +1875,19 @@
     // أضف أو غيّر أي نص لاحقًا من هذا الكائن فقط دون لمس بنية الصفحة
     const data = {
       en: {
-        nav: { about: 'About', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
+        nav: { about: 'About', experience: 'Experience', skills: 'Skills', services: 'Services', client: 'Client', learner: 'Learner', fellowEngineer: 'Fellow Engineer', contact: 'Contact' },
+        services: {
+          eyebrow: 'How I Can Help', title: 'Services & Collaboration', description: 'Whether you need engineering support, want to develop your skills, or are looking to collaborate, there is a path for you.',
+          clientLabel: 'For Clients', clientTitle: 'Engineering Support You Can Rely On', clientDescription: 'Get support with structural design, drawing review, and site-execution consultations for your project.', clientAction: 'Discuss Your Project',
+          learnerLabel: 'For Learners', learnerTitle: 'Learn Through Practical Engineering', learnerDescription: 'Explore practical engineering content, project-based insights, and learning resources for your next step.', learnerAction: 'Explore Learning Content',
+          fellowLabel: 'For Fellow Engineers', fellowTitle: 'Build Better, Together', fellowDescription: 'Connect to exchange expertise, review drawings, and explore meaningful engineering collaborations.', fellowAction: 'Connect on LinkedIn'
+        },
         hero: {
           eyebrow: 'Structural Civil Engineer',
           title: 'MOHAMAD<br><span class="amber-line">ELBAHDLI</span>',
           subtitle: 'Civil Engineer with 1+ year of experience in <strong class="text-steel-200">structural engineering</strong> and <strong class="text-steel-200">site execution</strong>. Skilled in reinforced concrete design, shop drawing review, and construction supervision — delivering accurate structural solutions with precision.',
           cv: 'Download CV',
-          contact: 'Get in Touch',
+          contact: 'Explore Services',
           scroll: 'Scroll',
           stat1: 'Buildings<br>Supervised',
           stat2: 'Team<br>Members Led',
@@ -1726,7 +1912,13 @@
         footer: { text: 'Mohamad Elbahdli – Civil Engineer', note: 'Designed with Mohamed Elbahdli' }
       },
       ar: {
-        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', contact: 'التواصل' },
+        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', services: 'Services', client: 'Client', learner: 'Learner', fellowEngineer: 'Fellow Engineer', contact: 'التواصل' },
+        services: {
+          eyebrow: 'كيف أقدر أساعدك', title: 'الخدمات والتعاون', description: 'سواء كنت تحتاج دعمًا هندسيًا، أو تريد تطوير مهاراتك، أو تبحث عن تعاون مهني، ستجد المسار المناسب هنا.',
+          clientLabel: 'للعملاء', clientTitle: 'دعم هندسي يمكنك الاعتماد عليه', clientDescription: 'احصل على دعم في التصميم الإنشائي، ومراجعة الرسومات، واستشارات تنفيذ الموقع لمشروعك.', clientAction: 'ناقش مشروعك',
+          learnerLabel: 'للمهتمين بالتعلم', learnerTitle: 'تعلم من خلال الهندسة العملية', learnerDescription: 'استكشف محتوى هندسيًا عمليًا، ورؤى مستخلصة من المشاريع، وموارد تساعدك في خطوتك القادمة.', learnerAction: 'استكشف محتوى التعلم',
+          fellowLabel: 'للمهندسين الزملاء', fellowTitle: 'نبني بشكل أفضل معًا', fellowDescription: 'تواصل لتبادل الخبرات، ومراجعة الرسومات، واستكشاف فرص تعاون هندسي ذات قيمة.', fellowAction: 'تواصل عبر لينكدإن'
+        },
         hero: {
           eyebrow: 'مهندس مدني إنشائي',
           title: 'محمد<br><span class="amber-line">البهدلي</span>',
@@ -1789,8 +1981,12 @@
       });
 
       const t = data[lang];
-      setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-contact', t.nav.contact);
-      setText('nav-about-mobile', t.nav.about); setText('nav-experience-mobile', t.nav.experience); setText('nav-skills-mobile', t.nav.skills); setText('nav-contact-mobile', t.nav.contact);
+      setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-services', t.nav.services); setText('nav-service-client', t.nav.client); setText('nav-service-learner', t.nav.learner); setText('nav-service-fellow-engineer', t.nav.fellowEngineer); setText('nav-contact', t.nav.contact);
+      setText('nav-about-mobile', t.nav.about); setText('nav-experience-mobile', t.nav.experience); setText('nav-skills-mobile', t.nav.skills); setText('nav-services-mobile', t.nav.services); setText('nav-service-client-mobile', t.nav.client); setText('nav-service-learner-mobile', t.nav.learner); setText('nav-service-fellow-engineer-mobile', t.nav.fellowEngineer); setText('nav-contact-mobile', t.nav.contact);
+      setText('services-eyebrow', t.services.eyebrow); setText('services-title', t.services.title); setText('services-description', t.services.description);
+      setText('client-label', t.services.clientLabel); setText('client-title', t.services.clientTitle); setText('client-description', t.services.clientDescription); setText('client-action-text', t.services.clientAction);
+      setText('learner-label', t.services.learnerLabel); setText('learner-title', t.services.learnerTitle); setText('learner-description', t.services.learnerDescription); setText('learner-action-text', t.services.learnerAction);
+      setText('fellow-label', t.services.fellowLabel); setText('fellow-title', t.services.fellowTitle); setText('fellow-description', t.services.fellowDescription); setText('fellow-action-text', t.services.fellowAction);
       setText('hero-eyebrow', t.hero.eyebrow); setText('hero-title', t.hero.title); setText('hero-subtitle', t.hero.subtitle); setText('hero-cv', t.hero.cv); setText('hero-contact', t.hero.contact); setText('hero-scroll', t.hero.scroll); setText('hero-stat-1-label', t.hero.stat1); setText('hero-stat-2-label', t.hero.stat2); setText('hero-stat-3-label', t.hero.stat3);
       setText('about-eyebrow', t.about.eyebrow); setText('about-title', t.about.title); setText('about-p1', t.about.intro1); setText('about-p2', t.about.intro2); setText('about-p3', t.about.intro3); setText('leadership-title', t.about.leadership); setText('leadership-1', t.about.bullet1); setText('leadership-2', t.about.bullet2); setText('leadership-3', t.about.bullet3); setText('leadership-4', t.about.bullet4);
       setText('education-eyebrow', t.education.eyebrow); setText('education-title', t.education.title); setText('education-title-card', t.education.degreeTitle); setText('education-subtitle-card', t.education.degreeSubtitle); setText('graduation-title', t.education.projectTitle); setText('graduation-tag', t.education.projectTag); setText('graduation-item-1', t.education.projectItem1); setText('graduation-item-2', t.education.projectItem2); setText('graduation-item-3', t.education.projectItem3); setText('graduation-item-4', t.education.projectItem4);
