@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamad Elbahdli – Structural Civil Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,44 +77,72 @@
     }
 
     /* ── Nav ── */
+    #navbar {
+      padding-top: .85rem;
+      padding-bottom: .85rem;
+    }
+
+    .nav-shell {
+      min-height: 4.25rem;
+      padding: .55rem .8rem .55rem 1rem;
+      border: 1px solid rgba(176, 196, 222, .16);
+      border-radius: 1.15rem;
+      background: rgba(11, 26, 47, .72);
+      box-shadow: 0 12px 32px rgba(3, 10, 22, .2), inset 0 1px 0 rgba(255, 255, 255, .035);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, border-radius .3s ease;
+    }
+
     .nav-link {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.25rem;
+      padding: .45rem .6rem;
+      border-radius: .55rem;
       font-size: .85rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: .06em;
       text-transform: uppercase;
       color: #B0C4DE;
-      transition: color .25s;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
     }
 
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
+      right: .6rem;
+      bottom: .3rem;
+      left: .6rem;
+      width: auto;
+      height: 1.5px;
       background: #E8A020;
-      transition: width .3s;
+      border-radius: 99px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
     }
 
     .nav-link:hover {
       color: #F0B640;
+      background: rgba(232, 160, 32, .09);
+      transform: translateY(-1px);
     }
 
     .nav-link:hover::after {
-      width: 100%;
+      transform: scaleX(1);
     }
 
     .nav-link-highlight {
       color: #F0B640;
       font-weight: 700;
-      padding: 0 .2rem;
-      border-radius: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      margin-right: .25rem;
+      padding: .45rem .7rem;
+      border-radius: .55rem;
+      background: rgba(232, 160, 32, .12);
+      border: 1px solid rgba(232, 160, 32, .2);
+      box-shadow: inset 0 1px 0 rgba(245, 202, 110, .12);
+      margin-right: .1rem;
       text-shadow: 0 0 8px rgba(240, 182, 64, .16);
     }
 
@@ -146,9 +175,9 @@
       min-width: 11.5rem;
       padding: .45rem;
       border: 1px solid rgba(143, 168, 200, .18);
-      border-radius: .65rem;
+      border-radius: .85rem;
       background: rgba(11, 26, 47, .98);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, .3);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .04);
       opacity: 0;
       visibility: hidden;
       transform: translate(-50%, -.4rem);
@@ -181,9 +210,63 @@
     }
 
     .nav-scrolled {
-      background: rgba(11, 26, 47, .96) !important;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, .4);
+      background: transparent !important;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .nav-scrolled .nav-shell {
+      border-color: rgba(232, 160, 32, .25);
+      background: rgba(11, 26, 47, .94);
+      box-shadow: 0 14px 36px rgba(3, 10, 22, .46), inset 0 1px 0 rgba(255, 255, 255, .045);
+    }
+
+    .brand-mark {
+      width: 2.45rem;
+      height: 2.45rem;
+      border: 1px solid rgba(245, 202, 110, .55);
+      border-radius: .7rem;
+      background: linear-gradient(145deg, #F0B640, #D38A10);
+      box-shadow: 0 7px 18px rgba(232, 160, 32, .2);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .group:hover .brand-mark {
+      transform: rotate(-4deg) scale(1.05);
+      box-shadow: 0 10px 22px rgba(232, 160, 32, .32);
+    }
+
+    #menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 1px solid rgba(176, 196, 222, .18);
+      border-radius: .65rem;
+      background: rgba(17, 34, 64, .55);
+    }
+
+    #menu-btn:hover {
+      border-color: rgba(232, 160, 32, .42);
+      background: rgba(232, 160, 32, .1);
+    }
+
+    @media (max-width: 767px) {
+      .nav-shell {
+        padding: .5rem .6rem .5rem .85rem;
+      }
+
+      #mobile-menu {
+        margin-top: .55rem;
+        border: 1px solid rgba(176, 196, 222, .12);
+        border-radius: .85rem;
+        overflow: hidden;
+      }
+
+      #mobile-menu .nav-link {
+        width: 100%;
+      }
     }
 
     /* ── Hero text ── */
@@ -242,30 +325,6 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, .4), 0 0 0 1px rgba(232, 160, 32, .15);
     }
 
-    .contact-action-card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
-    }
-
-    .contact-action-card:hover {
-      transform: translateY(-2px) scale(1.02);
-      border-color: rgba(232, 160, 32, .45);
-      box-shadow: 0 18px 40px rgba(232, 160, 32, .16);
-      background: rgba(232, 160, 32, .08);
-    }
-
-    .contact-action-icon {
-      min-width: 3.5rem;
-      min-height: 3.5rem;
-      border-radius: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      background: rgba(232, 160, 32, .12);
-      color: #E8A020;
-      box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .08);
-    }
-
     /* ── Skill bar ── */
     .skill-bar-track {
       background: rgba(143, 168, 200, .12);
@@ -303,6 +362,26 @@
       border-color: rgba(232, 160, 32, .4);
       color: #F0B640;
       box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .25);
+    }
+
+    .filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.25rem;
+      height: 1.25rem;
+      margin-left: .35rem;
+      padding: 0 .28rem;
+      border-radius: 999px;
+      background: rgba(143, 168, 200, .13);
+      color: #D0DCF0;
+      font-size: .65rem;
+      line-height: 1;
+    }
+
+    .project-filter-btn.active .filter-count {
+      background: rgba(232, 160, 32, .22);
+      color: #F5CA6E;
     }
 
     .project-card {
@@ -491,27 +570,8 @@
       font-size: 1.1rem;
     }
 
-    /* ── Contact input ── */
-    .form-input {
-      width: 100%;
-      background: rgba(17, 34, 64, .8);
-      border: 1px solid rgba(143, 168, 200, .2);
-      border-radius: 8px;
-      padding: .75rem 1rem;
-      color: #EBF1FA;
-      font-family: inherit;
-      font-size: .9rem;
-      outline: none;
-      transition: border-color .25s, box-shadow .25s;
-    }
-
-    .form-input::placeholder {
-      color: #64748B;
-    }
-
-    .form-input:focus {
-      border-color: #E8A020;
-      box-shadow: 0 0 0 3px rgba(232, 160, 32, .15);
+    .experience-in-work {
+      margin-top: 2.5rem;
     }
 
     /* ── Buttons ── */
@@ -573,39 +633,6 @@
 
     .service-action span {
       max-width: 100%;
-    }
-
-    /* ── Language toggle and hero portrait ── */
-    .lang-toggle-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-    }
-
-    .lang-toggle-btn {
-      min-width: 2.7rem;
-      height: 2.7rem;
-      padding: 0 .7rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(143, 168, 200, .2);
-      background: rgba(17, 34, 64, .7);
-      color: #B0C4DE;
-      border-radius: 9999px;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      transition: all .25s ease;
-    }
-
-    .lang-toggle-btn:hover,
-    .lang-toggle-btn.active {
-      background: rgba(232, 160, 32, .16);
-      border-color: rgba(232, 160, 32, .4);
-      color: #F0B640;
-      box-shadow: inset 0 0 0 1px rgba(232, 160, 32, .25);
     }
 
     .hero-photo-shell {
@@ -838,84 +865,79 @@
   <!-- ════════════════════════════════════════
      NAVBAR
 ════════════════════════════════════════ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 lg:px-12">
+    <div class="nav-shell max-w-6xl mx-auto">
+      <div class="flex items-center justify-between">
 
-      <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded flex items-center justify-center" style="background:#E8A020">
-          <span class="font-display font-800 text-navy-900 text-base leading-none font-extrabold"
-            style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800">ME</span>
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2.5 group">
+          <div class="brand-mark flex items-center justify-center">
+            <span class="font-display font-800 text-navy-900 text-base leading-none font-extrabold"
+              style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800">ME</span>
+          </div>
+          <span class="font-display font-semibold tracking-widest text-sm text-steel-300 uppercase hidden sm:block"
+            style="font-family:'Barlow Condensed',sans-serif;letter-spacing:.12em">Elbahdli</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-3 lg:gap-4">
+          <a href="#about" id="nav-about" class="nav-link">About</a>
+          <a href="#projects" id="nav-experience" class="nav-link nav-link-highlight">Experience</a>
+          <div class="services-dropdown" id="services-dropdown">
+            <button id="services-trigger" class="nav-link services-trigger" type="button" aria-expanded="false"
+              aria-controls="services-menu">
+              <span id="nav-services">Services</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
+              </svg>
+            </button>
+            <div id="services-menu" class="services-menu" role="menu" aria-labelledby="services-trigger">
+              <a id="nav-service-client" href="#client" role="menuitem">Client</a>
+              <a id="nav-service-learner" href="#learner" role="menuitem">Learner</a>
+              <a id="nav-service-fellow-engineer" href="#fellow-engineer" role="menuitem">Fellow Engineer</a>
+            </div>
+          </div>
         </div>
-        <span class="font-display font-semibold tracking-widest text-sm text-steel-300 uppercase hidden sm:block"
-          style="font-family:'Barlow Condensed',sans-serif;letter-spacing:.12em">Elbahdli</span>
-      </a>
 
-      <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-3 lg:gap-4">
-        <a href="#about" id="nav-about" class="nav-link">About</a>
-        <a href="#experience" id="nav-experience" class="nav-link nav-link-highlight">Experience</a>
-        <div class="services-dropdown" id="services-dropdown">
-          <button id="services-trigger" class="nav-link services-trigger" type="button" aria-expanded="false"
-            aria-controls="services-menu">
-            <span id="nav-services">Services</span>
-            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
+        <!-- Mobile header actions -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="menu-btn" class="text-steel-300 hover:text-amber-400 transition-colors p-1"
+            aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div id="services-menu" class="services-menu" role="menu" aria-labelledby="services-trigger">
-            <a id="nav-service-client" href="#client" role="menuitem">Client</a>
-            <a id="nav-service-learner" href="#learner" role="menuitem">Learner</a>
-            <a id="nav-service-fellow-engineer" href="#fellow-engineer" role="menuitem">Fellow Engineer</a>
-          </div>
-        </div>
-        <div class="lang-toggle-wrap">
-          <button id="lang-toggle-btn" class="project-lang-btn lang-toggle-btn active" data-lang="en"
-            aria-label="Switch to Arabic">EN</button>
         </div>
       </div>
 
-      <!-- Mobile header actions -->
-      <div class="flex items-center gap-2 md:hidden">
-        <div class="lang-toggle-wrap">
-          <button id="lang-toggle-btn-mobile" class="project-lang-btn lang-toggle-btn active" data-lang="en"
-            aria-label="Switch to Arabic">EN</button>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
+        <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-4 border-t border-steel-400 border-opacity-10 mt-3">
+          <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
+          <a href="#projects" id="nav-experience-mobile" class="nav-link nav-link-highlight"
+            onclick="closeMobile()">Experience</a>
+          <details class="mobile-services">
+            <summary class="nav-link flex items-center justify-between">
+              <span id="nav-services-mobile">Services</span>
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
+              </svg>
+            </summary>
+            <div class="mt-3 ml-3 pl-4 border-l border-steel-400 border-opacity-20 flex flex-col gap-3">
+              <a id="nav-service-client-mobile" href="#client" class="nav-link text-xs"
+                onclick="closeMobile()">Client</a>
+              <a id="nav-service-learner-mobile" href="#learner" class="nav-link text-xs"
+                onclick="closeMobile()">Learner</a>
+              <a id="nav-service-fellow-engineer-mobile" href="#fellow-engineer" class="nav-link text-xs"
+                onclick="closeMobile()">Fellow Engineer</a>
+            </div>
+          </details>
         </div>
-        <button id="menu-btn" class="text-steel-300 hover:text-amber-400 transition-colors p-1"
-          aria-label="Toggle menu">
-          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
-      <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-4 border-t border-steel-400 border-opacity-10 mt-3">
-        <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
-        <a href="#experience" id="nav-experience-mobile" class="nav-link nav-link-highlight"
-          onclick="closeMobile()">Experience</a>
-        <details class="mobile-services">
-          <summary class="nav-link flex items-center justify-between">
-            <span id="nav-services-mobile">Services</span>
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
-            </svg>
-          </summary>
-          <div class="mt-3 ml-3 pl-4 border-l border-steel-400 border-opacity-20 flex flex-col gap-3">
-            <a id="nav-service-client-mobile" href="#client" class="nav-link text-xs" onclick="closeMobile()">Client</a>
-            <a id="nav-service-learner-mobile" href="#learner" class="nav-link text-xs"
-              onclick="closeMobile()">Learner</a>
-            <a id="nav-service-fellow-engineer-mobile" href="#fellow-engineer" class="nav-link text-xs"
-              onclick="closeMobile()">Fellow Engineer</a>
-          </div>
-        </details>
       </div>
     </div>
   </nav>
@@ -1200,7 +1222,7 @@
       <div class="relative max-w-3xl mx-auto">
 
         <!-- Entry 1 -->
-        <div class="relative flex gap-6 mb-10 reveal">
+        <div class="project-card experience-entry relative flex gap-6 mb-10 reveal" data-categories="experience">
           <div class="flex flex-col items-center">
             <div class="timeline-dot">🏗️</div>
             <div class="timeline-line"></div>
@@ -1232,7 +1254,8 @@
         </div>
 
         <!-- Entry 2 -->
-        <div class="relative flex gap-6 mb-10 reveal reveal-delay-1">
+        <div class="project-card experience-entry relative flex gap-6 mb-10 reveal reveal-delay-1"
+          data-categories="experience">
           <div class="flex flex-col items-center">
             <div class="timeline-dot">🏢</div>
             <div class="timeline-line"></div>
@@ -1264,7 +1287,8 @@
         </div>
 
         <!-- Entry 3 -->
-        <div class="relative flex gap-6 reveal reveal-delay-2">
+        <div class="project-card experience-entry relative flex gap-6 reveal reveal-delay-2"
+          data-categories="experience">
           <div class="flex flex-col items-center">
             <div class="timeline-dot">📐</div>
           </div>
@@ -1307,25 +1331,24 @@
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
         <div class="max-w-2xl">
-          <p id="projects-eyebrow" class="section-eyebrow mb-3 reveal" data-en="Projects Showcase"
-            data-ar="معرض المشاريع">Projects Showcase</p>
-          <h2 id="projects-title" class="section-title reveal reveal-delay-1" data-en="Selected Work"
-            data-ar="أعمال مختارة">Selected Work</h2>
-          <p id="projects-description" class="text-steel-400 text-sm mt-3 reveal reveal-delay-2"
-            data-en="A blend of structural design, site execution, and knowledge transfer — showcased through practical engineering work."
-            data-ar="مزيج من التصميم الإنشائي والتنفيذ في الموقع ونقل المعرفة — معروض من خلال أعمال هندسية عملية.">A
+          <p id="projects-eyebrow" class="section-eyebrow mb-3 reveal">Projects Showcase</p>
+          <h2 id="projects-title" class="section-title reveal reveal-delay-1">Selected Work</h2>
+          <p id="projects-description" class="text-steel-400 text-sm mt-3 reveal reveal-delay-2">A
             blend of structural design, site execution, and knowledge transfer — showcased through practical engineering
             work.</p>
         </div>
       </div>
 
       <div class="flex flex-wrap gap-3 mb-8 reveal reveal-delay-2">
-        <button class="project-filter-btn active" data-category="all" data-en="All" data-ar="الكل">All</button>
-        <button class="project-filter-btn" data-category="structural" data-en="Structural Design"
-          data-ar="تصميم إنشائي">Structural Design</button>
-        <button class="project-filter-btn" data-category="site" data-en="Site Execution" data-ar="تنفيذ موقع">Site
-          Execution</button>
-        <button class="project-filter-btn" data-category="training" data-en="Training" data-ar="تدريب">Training</button>
+        <button class="project-filter-btn active" data-category="all">All <span class="filter-count">7</span></button>
+        <button class="project-filter-btn" data-category="structural">Structural Design <span
+            class="filter-count">1</span></button>
+        <button class="project-filter-btn" data-category="site">Site
+          Execution <span class="filter-count">1</span></button>
+        <button class="project-filter-btn" data-category="training">Training <span
+            class="filter-count">2</span></button>
+        <button class="project-filter-btn" data-category="experience">Professional Experience <span
+            class="filter-count">3</span></button>
       </div>
 
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -1341,16 +1364,11 @@
                   aria-label="Next image">›</button>
               </div>
               <div class="project-overlay">
-                <span class="tag tag-amber" data-en="Structural Design" data-ar="تصميم إنشائي">Structural Design</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Tower Project with Repeats"
-                  data-ar="مشروع برج بمتكرر">Tower Project with Repeats</h3>
-                <p class="text-sm text-steel-300 mt-2"
-                  data-en="Project: Tower with basement, ground floor, and 13 repeated floors"
-                  data-ar="المشروع: برج مكون من بدروم وأرضي و13 متكرر">Project: Tower with basement, ground floor, and
+                <span class="tag tag-amber">Structural Design</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3">Tower Project with Repeats</h3>
+                <p class="text-sm text-steel-300 mt-2">Project: Tower with basement, ground floor, and
                   13 repeated floors</p>
-                <p class="text-sm text-steel-200 mt-3"
-                  data-en="I also handled the seismic protection design for this structure."
-                  data-ar="واشتغلت طبعا احمي الزلازل عليه">I also handled the seismic protection design for this
+                <p class="text-sm text-steel-200 mt-3">I also handled the seismic protection design for this
                   structure.</p>
               </div>
             </div>
@@ -1376,14 +1394,11 @@
                   aria-label="Next image">›</button>
               </div>
               <div class="project-overlay">
-                <span class="tag tag-amber" data-en="Training" data-ar="تدريب">Training</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Residential Villa Supervision"
-                  data-ar="فيلا سكنية الإشراف">Residential Villa Supervision</h3>
-                <p class="text-sm text-steel-300 mt-2" data-en="Project: Residential villa – Mr. Abdel Aziz El Sayed"
-                  data-ar="المشروع: فيلا سكنية - ملك الأستاذ عبد العزيز السيد.">Project: Residential villa – Mr. Abdel
+                <span class="tag tag-amber">Training</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3">Residential Villa Supervision</h3>
+                <p class="text-sm text-steel-300 mt-2">Project: Residential villa – Mr. Abdel
                   Aziz El Sayed</p>
-                <p class="text-sm text-steel-200 mt-3" data-en="Location: Dakahlia Governorate, Menia El Nasr"
-                  data-ar="الموقع: محافظة الدقهلية - مركز منية النصر.">Location: Dakahlia Governorate, Menia El Nasr</p>
+                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate, Menia El Nasr</p>
               </div>
             </div>
             <div class="project-gallery-indicators">
@@ -1405,14 +1420,10 @@
                   aria-label="Next image">›</button>
               </div>
               <div class="project-overlay">
-                <span class="tag tag-amber" data-en="Site Execution" data-ar="تنفيذ موقع">Site Execution</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Residential Tower Supervision"
-                  data-ar="إشراف برج سكني">Residential Tower Supervision</h3>
-                <p class="text-sm text-steel-300 mt-2" data-en="Project: Residential tower – Mr. Tamer Hafez"
-                  data-ar="المشروع: برج سكني - ملك الأستاذ تامر حافظ">Project: Residential tower – Mr. Tamer Hafez</p>
-                <p class="text-sm text-steel-200 mt-3"
-                  data-en="Location: Dakahlia Governorate, Menia El Nasr, Mit El Kholei"
-                  data-ar="الموقع: محافظة الدقهلية - مركز منية النصر - ميت الخولي مؤمن">Location: Dakahlia Governorate,
+                <span class="tag tag-amber">Site Execution</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3">Residential Tower Supervision</h3>
+                <p class="text-sm text-steel-300 mt-2">Project: Residential tower – Mr. Tamer Hafez</p>
+                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate,
                   Menia El Nasr, Mit El Kholei</p>
               </div>
             </div>
@@ -1445,13 +1456,10 @@
                   aria-label="Next image">›</button>
               </div>
               <div class="project-overlay">
-                <span class="tag tag-amber" data-en="Training" data-ar="تدريب">Training</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3" data-en="Commercial & Residential Complex"
-                  data-ar="مجمع تجاري وسكني">Commercial & Residential Complex</h3>
-                <p class="text-sm text-steel-300 mt-2" data-en="Project: Complex – Qased Khair Company"
-                  data-ar="المشروع: مجمع تجاري وسكني - تابع لشركة قاصد خير">Project: Complex – Qased Khair Company</p>
-                <p class="text-sm text-steel-200 mt-3" data-en="Location: Dakahlia Governorate, Mansoura - Talkha"
-                  data-ar="الموقع: محافظة الدقهلية - مركز المنصورة - طلخا">Location: Dakahlia Governorate, Mansoura -
+                <span class="tag tag-amber">Training</span>
+                <h3 class="text-xl font-semibold text-steel-100 mt-3">Commercial & Residential Complex</h3>
+                <p class="text-sm text-steel-300 mt-2">Project: Complex – Qased Khair Company</p>
+                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate, Mansoura -
                   Talkha</p>
               </div>
             </div>
@@ -1804,9 +1812,11 @@
 
     /* ── Navbar scroll ── */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
+    const updateNavbarState = () => {
       navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
-    });
+    };
+    updateNavbarState();
+    window.addEventListener('scroll', updateNavbarState, { passive: true });
 
     /* ── Mobile menu ── */
     const menuBtn = document.getElementById('menu-btn');
@@ -1819,6 +1829,7 @@
         const isOpen = mobileMenu.classList.toggle('open');
         iconOpen.classList.toggle('hidden', isOpen);
         iconClose.classList.toggle('hidden', !isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
       });
     }
 
@@ -1826,6 +1837,7 @@
       mobileMenu.classList.remove('open');
       iconOpen.classList.remove('hidden');
       iconClose.classList.add('hidden');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
     }
 
     /* Services dropdown */
@@ -1880,12 +1892,9 @@
     document.querySelectorAll('.card-glass').forEach(card => barObserver.observe(card));
 
     /* ── Projects showcase ── */
-    const languageButtons = document.querySelectorAll('.lang-toggle-btn');
     const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
 
-    // أكتب نصوص الموقع هنا بالإنجليزية والعربية في مكان واحد واضح ومحدد
-    // أضف أو غيّر أي نص لاحقًا من هذا الكائن فقط دون لمس بنية الصفحة
+    // Centralized English copy for dynamic interface elements.
     const data = {
       en: {
         nav: { about: 'About', experience: 'Experience', skills: 'Skills', services: 'Services', client: 'Client', learner: 'Learner', fellowEngineer: 'Fellow Engineer', contact: 'Contact' },
@@ -1911,7 +1920,6 @@
         experience: {
           eyebrow: 'Career Path',
           title: 'Professional Experience',
-          // أكتب نص الخبرة هنا بالإنجليزية
           entry1Title: 'Structural Design Engineer',
           entry1Role: 'Fouda Group',
           entry2Title: 'Site & Structural Engineer Trainee',
@@ -1923,43 +1931,6 @@
         skills: { eyebrow: 'Capabilities', title: 'Skills & Expertise', software: 'Structural Software', engineering: 'Structural Engineering', site: 'Site Skills', cybersecurity: 'Cybersecurity', soft: 'Professional Competencies' },
         contact: { eyebrow: 'Let\'s Build Together', title: 'Get in Touch', description: 'Whether it\'s a structural project, a consultation, or a collaboration — I\'d love to hear from you.', formTitle: 'Direct Contact', whatsappTitle: 'WhatsApp', whatsappDesc: 'Send a direct message instantly.', messengerTitle: 'Messenger', messengerDesc: 'Send a message on Facebook Messenger.', emailTitle: 'Email', emailDesc: 'mohamedelbahdli@gmail.com', send: 'Send Message', direct: 'Direct Contact', social: 'Social & Professional', email: 'Email', phone: 'Phone / WhatsApp', location: 'Location', messageSent: '✓ Message sent! I\'ll get back to you shortly.' },
         footer: { text: 'Mohamad Elbahdli – Civil Engineer', note: 'Designed with Mohamed Elbahdli' }
-      },
-      ar: {
-        nav: { about: 'من أنا', experience: 'الخبرة', skills: 'المهارات', services: 'Services', client: 'Client', learner: 'Learner', fellowEngineer: 'Fellow Engineer', contact: 'التواصل' },
-        services: {
-          eyebrow: 'كيف أقدر أساعدك', title: 'الخدمات والتعاون', description: 'سواء كنت تحتاج دعمًا هندسيًا، أو تريد تطوير مهاراتك، أو تبحث عن تعاون مهني، ستجد المسار المناسب هنا.',
-          clientLabel: 'للعملاء', clientTitle: 'دعم هندسي يمكنك الاعتماد عليه', clientDescription: 'احصل على دعم في التصميم الإنشائي، ومراجعة الرسومات، واستشارات تنفيذ الموقع لمشروعك.', clientAction: 'ناقش مشروعك',
-          learnerLabel: 'للمهتمين بالتعلم', learnerTitle: 'تعلم من خلال الهندسة العملية', learnerDescription: 'استكشف محتوى هندسيًا عمليًا، ورؤى مستخلصة من المشاريع، وموارد تساعدك في خطوتك القادمة.', learnerAction: 'استكشف محتوى التعلم',
-          fellowLabel: 'للمهندسين الزملاء', fellowTitle: 'نبني بشكل أفضل معًا', fellowDescription: 'تواصل لتبادل الخبرات، ومراجعة الرسومات، واستكشاف فرص تعاون هندسي ذات قيمة.', fellowAction: 'تواصل عبر لينكدإن'
-        },
-        hero: {
-          eyebrow: 'مهندس مدني إنشائي',
-          title: 'محمد<br><span class="amber-line">البهدلي</span>',
-          subtitle: 'مهندس مدني بخبرة تزيد عن سنة في <strong class="text-steel-200">الهندسة الإنشائية</strong> و<strong class="text-steel-200">التنفيذ في الموقع</strong>. يمتلك خبرة في التصميم الإنشائي واستمارات الورش والإشراف على التنفيذ مع دقة عالية في الحلول الهندسية.',
-          cv: 'تنزيل السيرة',
-          contact: 'تواصل معي',
-          scroll: 'مرر للأسفل',
-          stat1: 'مباني<br>تم إشرافها',
-          stat2: 'فريق<br>تم قيادته',
-          stat3: 'أعلى طوابق<br>تم تنفيذها'
-        },
-        about: { eyebrow: 'من أنا', title: 'نبذة عني', intro1: 'أنا مهندس إنشائي بخبرة تزيد عن سنة في تقديم تصميمات خرسانية مسلحة بدقة عالية وتحسين سير العمل الهندسي. وبفضل إنجازاتي الأكاديمية المميزة، شملت مشروعي التخرجي التحليل الإنشائي الكامل والتصميم والإشراف على التنفيذ لمشاريع سكنية وفيلات متعددة الطوابق.', intro2: '<strong class="text-steel-100">من أساعد:</strong> أساعد مطوري العقارات والمستشارين والمقاولين — مثل فرق قاصد خير وفؤادة جروب — الذين يحتاجون إلى تصميمات إنشائية موثوقة ومراجعة دقيقة للموقع.', intro3: '<strong class="text-steel-100">كيف أساعدهم:</strong> أُسرّع سير العمل في البناء من خلال الاستفادة من ETABS و SAFE و SAP2000 لتنفيذ تحليل إنشائي دقيق. وفي الموقع، أترجم الرسومات إلى واقع دقيق من خلال إشراف تنفيذ دقيق، مع ضمان الالتزام باللوائح ومنع الأخطاء المكلفة.', leadership: 'كيف أضيف قيمة', bullet1: 'قائد فريق – تنسيق فرق متعددة من التحليل إلى التسليم', bullet2: 'إدارة موقع تشمل 10+ عاملًا عبر مشاريع سكنية', bullet3: 'توزيع المهام ومتابعة التقدم ومراقبة الجودة في المواقع النشطة', bullet4: 'تنسيق مشترك بين التصميم الإنشائي وأعمال الرسومات التنفيذية' },
-        education: { eyebrow: 'الخلفية الأكاديمية', title: 'التعليم', degreeTitle: 'بكالوريوس في الهندسة المدنية', degreeSubtitle: 'جامعة المنصورة — مصر', projectTitle: 'تصميم مبنى متعدد الطوابق', projectTag: 'قائد الفريق', projectItem1: 'تصميم مبانٍ متعددة الطوابق باستخدام ETABS وSAFE', projectItem2: 'قيادة فريق من 2 أعضاء مع إدارة كاملة للمهمات', projectItem3: 'مراجعة الحسابات الإنشائية والتحقق من دقتها', projectItem4: 'التنسيق بين التحليل الإنشائي والتصميم والرسومات التنفيذية' },
-        experience: {
-          eyebrow: 'مسار العمل',
-          title: 'الخبرة المهنية',
-          // أكتب نص الخبرة هنا بالعربية
-          entry1Title: 'مهندس تصميم انشائي ',
-          entry1Role: 'فؤادة جروب',
-          entry2Title: 'تدريب مهندس موقع إنشائي',
-          entry2Role: 'شركة قاصد خير',
-          entry3Title: 'تدريب موقع  – مشاريع سكني',
-          entry3Role: 'مكتب العزيز للهندسة'
-        },
-        projects: { eyebrow: 'معرض المشاريع', title: 'أعمال مختارة', description: 'مزيج من التصميم الإنشائي والتنفيذ في الموقع ونقل المعرفة — معروض من خلال أعمال هندسية عملية.' },
-        skills: { eyebrow: 'القدرات', title: 'المهارات والخبرة', software: 'البرامج الإنشائية', engineering: 'الهندسة الإنشائية', site: 'مهارات الموقع', cybersecurity: 'الأمن السيبراني', soft: 'الكفاءات المهنية' },
-        contact: { eyebrow: 'لنُبنِ معًا', title: 'تواصل معي', description: 'سواء كان مشروعًا إنشائيًا أو استشارة أو تعاونًا — يسعدني أن أسمع عنك.', formTitle: 'التواصل المباشر', whatsappTitle: 'واتساب', whatsappDesc: 'أرسل رسالة مباشرة وسريعة.', messengerTitle: 'فيسبوك ماسنجر', messengerDesc: 'راسلني عبر ماسنجر فيسبوك.', emailTitle: 'البريد الإلكتروني', emailDesc: 'mohamedelbahdli@gmail.com', send: 'إرسال الرسالة', direct: 'التواصل المباشر', social: 'التواصل المهني', email: 'البريد الإلكتروني', phone: 'الهاتف / واتساب', location: 'الموقع', messageSent: '✓ تم إرسال الرسالة! سأعود إليك قريبًا.' },
-        footer: { text: 'محمد البحدلي – مهندس مدني', note: 'مصمم بدقة' }
       }
     };
     let activeLanguage = 'en';
@@ -1986,13 +1957,6 @@
         heroLayout.classList.toggle('lg:flex-row-reverse', lang === 'ar');
       }
 
-      languageButtons.forEach(btn => {
-        btn.classList.toggle('active', true);
-        btn.dataset.lang = lang;
-        btn.textContent = lang === 'en' ? 'EN' : 'العربية';
-        btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'Switch to English');
-      });
-
       const t = data[lang];
       setText('nav-about', t.nav.about); setText('nav-experience', t.nav.experience); setText('nav-skills', t.nav.skills); setText('nav-services', t.nav.services); setText('nav-service-client', t.nav.client); setText('nav-service-learner', t.nav.learner); setText('nav-service-fellow-engineer', t.nav.fellowEngineer); setText('nav-contact', t.nav.contact);
       setText('nav-about-mobile', t.nav.about); setText('nav-experience-mobile', t.nav.experience); setText('nav-skills-mobile', t.nav.skills); setText('nav-services-mobile', t.nav.services); setText('nav-service-client-mobile', t.nav.client); setText('nav-service-learner-mobile', t.nav.learner); setText('nav-service-fellow-engineer-mobile', t.nav.fellowEngineer); setText('nav-contact-mobile', t.nav.contact);
@@ -2009,23 +1973,52 @@
       setText('contact-eyebrow', t.contact.eyebrow); setText('contact-title', t.contact.title); setText('contact-description', t.contact.description); setText('contact-form-title', t.contact.formTitle); setText('contact-whatsapp-title', t.contact.whatsappTitle); setText('contact-whatsapp-desc', t.contact.whatsappDesc); setText('contact-messenger-title', t.contact.messengerTitle); setText('contact-messenger-desc', t.contact.messengerDesc); setText('contact-email-title', t.contact.emailTitle); setText('contact-email-desc', t.contact.emailDesc); setText('contact-direct', t.contact.direct); setText('contact-social', t.contact.social); setText('contact-email', t.contact.email); setText('contact-phone', t.contact.phone); setText('contact-location', t.contact.location); setText('form-success', t.contact.messageSent);
       setText('footer-text', t.footer.text); setText('footer-note', t.footer.note);
 
-      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-        const value = lang === 'en' ? el.dataset.en : el.dataset.ar;
-        if (value) {
-          el.textContent = value;
-        }
-      });
-
-      resetTypewriter(lang);
+      resetTypewriter();
     }
 
     function updateProjectFilter(category) {
       activeProjectFilter = category;
       projectFilterButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.category === category));
-      projectCards.forEach(card => {
-        const matches = category === 'all' || card.dataset.category === category;
+      const workItems = document.querySelectorAll('.project-card');
+      let visibleExperienceItems = 0;
+
+      workItems.forEach(card => {
+        const categories = (card.dataset.categories || card.dataset.category || '').split(' ');
+        const matches = category === 'all' || categories.includes(category);
         card.classList.toggle('hidden', !matches);
+        if (card.classList.contains('experience-entry') && matches) visibleExperienceItems += 1;
       });
+
+      const experienceBlock = document.querySelector('.experience-in-work');
+      if (experienceBlock) experienceBlock.classList.toggle('hidden', visibleExperienceItems === 0);
+    }
+
+    function updateFilterCounts() {
+      const workItems = Array.from(document.querySelectorAll('.project-card'));
+      projectFilterButtons.forEach(button => {
+        const category = button.dataset.category;
+        const count = category === 'all'
+          ? workItems.length
+          : workItems.filter(item => (item.dataset.categories || item.dataset.category || '').split(' ').includes(category)).length;
+        const countEl = button.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+      });
+    }
+
+    function mergeExperienceIntoProjects() {
+      const experienceSection = document.getElementById('experience');
+      const projectsContent = document.querySelector('#projects > .max-w-6xl');
+      if (!experienceSection || !projectsContent) return;
+
+      const timeline = experienceSection.querySelector('.relative.max-w-3xl');
+      if (!timeline) return;
+
+      const experienceBlock = document.createElement('div');
+      experienceBlock.className = 'experience-in-work';
+      experienceBlock.setAttribute('aria-label', 'Professional experience timeline');
+      experienceBlock.append(timeline);
+      projectsContent.append(experienceBlock);
+      experienceSection.remove();
     }
 
     function initProjectGalleries() {
@@ -2101,28 +2094,17 @@
       });
     }
 
-    const roleSets = {
-      en: [
-        'Structural Design Engineer',
-        'Site Supervision Engineer',
-        'ETABS & SAFE Specialist',
-        'Reinforced Concrete Designer',
-        'Construction Team Leader'
-      ],
-      ar: [
-        'مهندس تصميم إنشائي',
-        'مهندس إشراف موقع',
-        'متخصص ETABS و SAFE',
-        'مصمم خرسانة مسلحة',
-        'قائد فريق تشييد'
-      ]
-    };
-    let typeRoles = roleSets.en;
+    const typeRoles = [
+      'Structural Design Engineer',
+      'Site Supervision Engineer',
+      'ETABS & SAFE Specialist',
+      'Reinforced Concrete Designer',
+      'Construction Team Leader'
+    ];
     let roleIdx = 0, charIdx = 0, deleting = false;
     const tw = document.getElementById('typewriter');
 
-    function resetTypewriter(lang) {
-      typeRoles = roleSets[lang];
+    function resetTypewriter() {
       roleIdx = 0; charIdx = 0; deleting = false; tw.textContent = '';
       setTimeout(type, 400);
     }
@@ -2146,53 +2128,16 @@
       setTimeout(type, deleting ? 45 : 70);
     }
 
-    languageButtons.forEach(btn => {
-      btn.addEventListener('click', () => updateLanguage(activeLanguage === 'en' ? 'ar' : 'en'));
-    });
-
     projectFilterButtons.forEach(btn => {
       btn.addEventListener('click', () => updateProjectFilter(btn.dataset.category));
     });
 
-    updateLanguage(activeLanguage);
+    mergeExperienceIntoProjects();
+    updateFilterCounts();
+    updateLanguage('en');
     updateProjectFilter(activeProjectFilter);
     initProjectGalleries();
 
-    /* ── Smart WhatsApp form redirection ── */
-    const whatsAppPhoneNumber = '201028211712';
-
-    function getCurrentLanguage() {
-      return activeLanguage || document.documentElement.lang || (document.documentElement.dir === 'rtl' ? 'ar' : 'en');
-    }
-
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
-    }
-
-    function getLocalizedFormText(lang) {
-      return lang === 'ar'
-        ? {
-          emptyFields: 'يرجى ملء جميع الحقول قبل الإرسال.',
-          labels: {
-            name: 'الاسم',
-            email: 'البريد',
-            subject: 'الموضوع',
-            message: 'نص الرسالة'
-          }
-        }
-        : {
-          emptyFields: 'Please fill in all fields before sending.',
-          labels: {
-            name: 'Name',
-            email: 'Email',
-            subject: 'Subject',
-            message: 'Message'
-          }
-        };
-    }
-
-    updateLanguage(activeLanguage);
-    updateProjectFilter(activeProjectFilter);
   </script>
 </body>
 
