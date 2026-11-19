@@ -1,0 +1,126 @@
+backend:
+  name: github
+  repo: civil-eng-mohamedelbahdli/civil-eng-mohamedelbahdli
+  branch: main
+  base_url: https://portfolio-decap-oauth.eng-mohamedelbahdli.workers.dev
+  auth_endpoint: auth
+
+site_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/
+display_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/
+publish_mode: simple
+locale: ar
+media_folder: assets/images
+public_folder: /civil-eng-mohamedelbahdli/assets/images
+media_processing:
+  enabled: true
+  format:
+    enabled: true
+    default: webp
+  quality: 82
+  strip_metadata: true
+  width: 1600
+
+collections:
+  - name: content
+    label: المحتوى
+    files:
+      - name: projects
+        label: المشاريع
+        file: data/projects.json
+        fields:
+          - label: المشاريع (اسحب لإعادة الترتيب)
+            name: projects
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - { label: معرّف المشروع, name: id, widget: string }
+              - { label: عنوان المشروع, name: title, widget: string }
+              - { label: معرّف التصنيف من الإعدادات, name: category, widget: string, hint: "اكتب أحد المعرّفات الموجودة في إعدادات الموقع." }
+              - { label: الوصف (كل سطر فقرة مستقلة), name: description, widget: list, field: { label: فقرة, name: paragraph, widget: string } }
+              - label: بيانات المشروع
+                name: info
+                widget: object
+                fields:
+                  - { label: الموقع, name: location, widget: string, required: false }
+                  - { label: التاريخ, name: date, widget: string, required: false }
+                  - { label: الدور, name: role, widget: string, required: false }
+                  - { label: نوع المشروع, name: projectType, widget: string, required: false }
+                  - { label: النطاق, name: scope, widget: string, required: false }
+              - { label: صورة الغلاف, name: coverImage, widget: image, media_library: { name: default, config: { max_file_size: 3145728 } } }
+              - label: صور المشروع (اسحب لإعادة الترتيب)
+                name: images
+                widget: list
+                collapsed: true
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: الصورة, name: src, widget: image, media_library: { name: default, config: { max_file_size: 3145728 } } }
+                  - { label: وصف الصورة البديل, name: alt, widget: string }
+              - { label: ظاهر على الموقع, name: visible, widget: boolean, default: true }
+      - name: experience
+        label: الخبرة المهنية
+        file: data/experience.json
+        fields:
+          - label: الخبرات (اسحب لإعادة الترتيب)
+            name: entries
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.title}} — {{fields.organization}}"
+            fields:
+              - { label: معرّف الخبرة, name: id, widget: string }
+              - { label: المسمى الوظيفي, name: title, widget: string }
+              - { label: الشركة أو الجهة, name: organization, widget: string }
+              - { label: الحالة, name: status, widget: select, options: [Current, Previous] }
+              - { label: الرمز, name: icon, widget: string, required: false }
+              - { label: المسؤوليات, name: bullets, widget: list, field: { label: مسؤولية, name: item, widget: string } }
+              - { label: ظاهر على الموقع, name: visible, widget: boolean, default: true }
+      - name: blog
+        label: المدونة
+        file: data/blog.json
+        fields:
+          - label: المقالات
+            name: posts
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { label: معرّف المقال, name: id, widget: string }
+              - { label: العنوان, name: title, widget: string }
+              - { label: التاريخ, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: صورة الغلاف, name: coverImage, widget: image, required: false, media_library: { name: default, config: { max_file_size: 3145728 } } }
+              - { label: وصف الصورة البديل, name: imageAlt, widget: string, required: false }
+              - { label: نص المقال, name: body, widget: markdown }
+              - { label: منشور للعامة, name: published, widget: boolean, default: false }
+              - { label: ظاهر على الموقع, name: visible, widget: boolean, default: true }
+      - name: settings
+        label: إعدادات الموقع
+        file: data/settings.json
+        fields:
+          - label: تصنيفات المشاريع (اسحب لإعادة الترتيب)
+            name: categories
+            widget: list
+            collapsed: true
+            summary: "{{fields.label}} ({{fields.id}})"
+            fields:
+              - { label: المعرّف (إنجليزي), name: id, widget: string }
+              - { label: اسم التصنيف, name: label, widget: string }
+              - { label: اللون, name: color, widget: string, required: false }
+          - { label: عنوان قسم المدونة, name: blogSectionTitle, widget: string }
+          - { label: رسالة المدونة الفارغة, name: blogEmptyMessage, widget: string }
+          - label: نصوص الواجهة
+            name: hero
+            widget: object
+            fields:
+              - { label: العبارة التعريفية, name: eyebrow, widget: string }
+              - { label: النص التعريفي, name: subtitle, widget: text }
+          - label: روابط التواصل
+            name: contactLinks
+            widget: object
+            fields:
+              - { label: واتساب, name: whatsapp, widget: string }
+              - { label: يوتيوب, name: youtube, widget: string }
+              - { label: لينكدإن, name: linkedin, widget: string }
+              - { label: GitHub, name: github, widget: string }

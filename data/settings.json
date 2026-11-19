@@ -1,0 +1,19 @@
+{
+  "categories": [
+    { "id": "structural", "label": "Structural Design", "color": "amber" },
+    { "id": "site", "label": "Site Execution", "color": "amber" },
+    { "id": "training", "label": "Training", "color": "amber" }
+  ],
+  "blogSectionTitle": "Engineering Notes",
+  "blogEmptyMessage": "New articles are coming soon.",
+  "hero": {
+    "eyebrow": "Structural Civil Engineer",
+    "subtitle": "Civil Engineer with 1+ year of experience in structural engineering and site execution. Skilled in reinforced concrete design, shop drawing review, and construction supervision — delivering accurate structural solutions with precision."
+  },
+  "contactLinks": {
+    "whatsapp": "https://wa.me/201028211712",
+    "youtube": "https://www.youtube.com/@eng.mohamed-elbahdli/videos",
+    "linkedin": "https://www.linkedin.com/in/eng-mohamed-elbahdli/",
+    "github": "https://github.com/civil-eng-mohamedelbahdli/"
+  }
+}

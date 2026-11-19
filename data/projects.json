@@ -1,0 +1,86 @@
+{
+  "projects": [
+    {
+      "id": "tower-project-with-repeats",
+      "title": "Tower Project with Repeats",
+      "category": "structural",
+      "description": [
+        "Project: Tower with basement, ground floor, and 13 repeated floors",
+        "I also handled the seismic protection design for this structure."
+      ],
+      "info": {
+        "location": "",
+        "date": "",
+        "role": "",
+        "projectType": "",
+        "scope": ""
+      },
+      "coverImage": "assets/images/selected-work/project-0-1.jpg",
+      "images": [
+        { "src": "assets/images/selected-work/project-0-1.jpg", "alt": "Tower project with basement and 13 repeated floors" },
+        { "src": "assets/images/selected-work/project-0-2.jpg", "alt": "Project 0 tower site view" }
+      ],
+      "visible": true
+    },
+    {
+      "id": "residential-villa-supervision",
+      "title": "Residential Villa Supervision",
+      "category": "training",
+      "description": ["Project: Residential villa – Mr. Abdel Aziz El Sayed"],
+      "info": {
+        "location": "Dakahlia Governorate, Menia El Nasr",
+        "date": "",
+        "role": "",
+        "projectType": "",
+        "scope": ""
+      },
+      "coverImage": "assets/images/selected-work/project-1.jpg",
+      "images": [
+        { "src": "assets/images/selected-work/project-1.jpg", "alt": "Villa construction training project" }
+      ],
+      "visible": true
+    },
+    {
+      "id": "residential-tower-supervision",
+      "title": "Residential Tower Supervision",
+      "category": "site",
+      "description": ["Project: Residential tower – Mr. Tamer Hafez"],
+      "info": {
+        "location": "Dakahlia Governorate, Menia El Nasr, Mit El Kholei",
+        "date": "",
+        "role": "",
+        "projectType": "",
+        "scope": ""
+      },
+      "coverImage": "assets/images/selected-work/project-2-1.jpg",
+      "images": [
+        { "src": "assets/images/selected-work/project-2-1.jpg", "alt": "Residential tower supervision project" },
+        { "src": "assets/images/selected-work/project-2-2.jpg", "alt": "Residential tower site progress" },
+        { "src": "assets/images/selected-work/project-2-3.jpg", "alt": "Reinforced concrete slab construction" },
+        { "src": "assets/images/selected-work/project-2-4.jpg", "alt": "Tower project site supervision" }
+      ],
+      "visible": true
+    },
+    {
+      "id": "commercial-residential-complex",
+      "title": "Commercial & Residential Complex",
+      "category": "training",
+      "description": ["Project: Complex – Qased Khair Company"],
+      "info": {
+        "location": "Dakahlia Governorate, Mansoura - Talkha",
+        "date": "",
+        "role": "",
+        "projectType": "",
+        "scope": ""
+      },
+      "coverImage": "assets/images/selected-work/project-3-1.JPG",
+      "images": [
+        { "src": "assets/images/selected-work/project-3-1.JPG", "alt": "Commercial and residential complex supervision" },
+        { "src": "assets/images/selected-work/project-3-2.jpg", "alt": "Complex project construction progress" },
+        { "src": "assets/images/selected-work/project-3-3.jpg", "alt": "Post-tension slab supervision" },
+        { "src": "assets/images/selected-work/project-3-4.jpg", "alt": "Shop and residential complex site" }
+      ],
+      "visible": true
+    }
+  ]
+}

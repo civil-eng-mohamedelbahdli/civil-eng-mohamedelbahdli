@@ -1,0 +1,10 @@
+# Local CMS and Worker tooling
+.wrangler/
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Browser audit profiles
+.tmp-*/
+.tmp-*.png
