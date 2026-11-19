@@ -21,7 +21,7 @@
 1. سجّل الدخول إلى حساب GitHub المالك للموقع.
 2. افتح **Settings → Developer settings → OAuth Apps → New OAuth App**.
 3. أدخل اسمًا مثل `Mohamed Portfolio CMS`.
-4. اجعل **Homepage URL** عنوان Worker الذي سيظهر بعد نشره في الخطوة التالية.
+4. اجعل **Homepage URL** عنوان موقعك المنشور: `https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/`.
 5. اجعل **Authorization callback URL** عنوان Worker نفسه متبوعًا بـ `/callback`، مثل `https://worker-name.account-subdomain.workers.dev/callback`.
 6. أنشئ التطبيق واحفظ **Client ID** و**Client Secret** مؤقتًا في مدير كلمات مرور. لا ترسلهما في محادثة ولا تضعهما في Git.
 7. إذا ظهر خيار **Expire user authorization tokens**، عطّله لهذا التطبيق؛ تدفق Decap/Worker الحالي يتبادل ويرسل access token فقط ولا يجدّد refresh tokens. GitHub توصي عادةً بالرموز المنتهية، لذا أعد تسجيل الدخول عند إبطال الرمز، وألغِ تفويض التطبيق من إعدادات الحساب إذا لم تعد تستخدمه.
@@ -49,7 +49,7 @@
 
    أدخل القيمة عند مطالبة Wrangler بها؛ لن تُكتب في ملفات المشروع.
 
-4. افتح `cloudflare-worker/wrangler.toml` وتأكد أن `ALLOWED_GITHUB_USERNAME` هو اسم مستخدمك الدقيق على GitHub. القيمة الحالية `mohamedelbahdli` مأخوذة من رابط GitHub الموجود في الموقع. تأكد أيضًا أن `ALLOWED_SITE_ORIGIN` يطابق نطاق GitHub Pages دون مسار المستودع.
+4. من لوحة Cloudflare افتح Worker `portfolio-decap-oauth` ثم **Settings → Variables and Secrets → Variables** وأضف `ALLOWED_GITHUB_USERNAME` بالقيمة `civil-eng-mohamedelbahdli`. هذا هو اسم مستخدم GitHub المسموح الوحيد. احفظ التغيير وأعد نشر/تشغيل Worker إذا طلبت Cloudflare ذلك. المتغير `ALLOWED_SITE_ORIGIN` يظل `https://civil-eng-mohamedelbahdli.github.io`، أي النطاق فقط من دون مسار المستودع.
 5. انسخ عنوان Worker الحقيقي إلى `backend.base_url` في `admin/config.yml` (من دون `/auth` أو `/callback`) ثم احفظ التعديل وارفع فرع `dashboard` وادمجه في `main`.
 6. بعد نشر GitHub Pages، افتح `/admin/` وسجّل الدخول بحساب GitHub المسموح. الـWorker يرفض أي حساب آخر قبل تسليم access token إلى لوحة الإدارة.
 

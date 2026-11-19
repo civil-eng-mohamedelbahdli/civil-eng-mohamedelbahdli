@@ -1530,7 +1530,7 @@
           class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.youtube.com/@eng.mohamed-elbahdli/videos" target="_blank" rel="noopener noreferrer"
           class="footer-social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://github.com/mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/civil-eng-mohamedelbahdli/" target="_blank" rel="noopener noreferrer"
           class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
       <p id="footer-note" class="text-steel-400 text-xs">
@@ -1840,7 +1840,9 @@
     }
 
     function assetURL(path) {
-      const cleanPath = String(path || '').trim().replace(/^\/+/, '');
+      let cleanPath = String(path || '').trim().replace(/^\/+/, '');
+      const pagesAssetPrefix = 'civil-eng-mohamedelbahdli/';
+      if (cleanPath.startsWith(pagesAssetPrefix)) cleanPath = cleanPath.slice(pagesAssetPrefix.length);
       if (!cleanPath.startsWith('assets/images/') || cleanPath.split('/').includes('..')) return '';
       return new URL(cleanPath, document.baseURI).href;
     }

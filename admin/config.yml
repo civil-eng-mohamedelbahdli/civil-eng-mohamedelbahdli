@@ -5,12 +5,12 @@ backend:
   base_url: https://portfolio-decap-oauth.YOUR-CLOUDFLARE-SUBDOMAIN.workers.dev
   auth_endpoint: auth
 
-site_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli
-display_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli
+site_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/
+display_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/
 publish_mode: simple
 locale: ar
 media_folder: assets/images
-public_folder: assets/images
+public_folder: /civil-eng-mohamedelbahdli/assets/images
 media_processing:
   enabled: true
   format:
