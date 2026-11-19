@@ -872,9 +872,10 @@
         <!-- Desktop links -->
         <div class="hidden md:flex items-center justify-center gap-10 lg:gap-16 w-full">
           <a href="#hero" id="nav-home" class="nav-link nav-link-highlight">Home</a>
-          <a href="#projects" id="nav-experience" class="nav-link">Experience</a>
-          <a href="#learner" id="nav-blog" class="nav-link">Blog</a>
+          <a href="#experience" id="nav-experience" class="nav-link">Experience</a>
+          <a href="#blog" id="nav-blog" class="nav-link hidden">Blog</a>
           <a href="#projects" id="nav-portfolio" class="nav-link">Portfolio Page</a>
+          <button type="button" id="direction-toggle" class="nav-link" aria-label="Toggle text direction">LTR / RTL</button>
         </div>
 
         <!-- Mobile header actions -->
@@ -895,9 +896,10 @@
       <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
         <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-2 border-t border-steel-400 border-opacity-10 mt-3">
           <a href="#hero" id="nav-home-mobile" class="nav-link nav-link-highlight" onclick="closeMobile()">Home</a>
-          <a href="#projects" id="nav-experience-mobile" class="nav-link" onclick="closeMobile()">Experience</a>
-          <a href="#learner" id="nav-blog-mobile" class="nav-link" onclick="closeMobile()">Blog</a>
+          <a href="#experience" id="nav-experience-mobile" class="nav-link" onclick="closeMobile()">Experience</a>
+          <a href="#blog" id="nav-blog-mobile" class="nav-link hidden" onclick="closeMobile()">Blog</a>
           <a href="#projects" id="nav-portfolio-mobile" class="nav-link" onclick="closeMobile()">Portfolio Page</a>
+          <button type="button" id="direction-toggle-mobile" class="nav-link text-left" aria-label="Toggle text direction">LTR / RTL</button>
         </div>
       </div>
     </div>
@@ -1173,105 +1175,8 @@
       </div>
 
       <!-- Timeline -->
-      <div class="relative max-w-3xl mx-auto">
-
-        <!-- Entry 1 -->
-        <div class="project-card experience-entry relative flex gap-6 mb-10 reveal" data-categories="experience">
-          <div class="flex flex-col items-center">
-            <div class="timeline-dot">🏗️</div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="card-glass p-6 flex-1 mb-0">
-            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-              <div>
-                <h3 id="experience-entry-1-title" class="text-steel-100 font-semibold text-lg">Structural Design
-                  Engineer</h3>
-                <p id="experience-entry-1-role" class="text-amber-400 font-medium text-sm">Fouda Group</p>
-              </div>
-              <span class="tag tag-amber">Current</span>
-            </div>
-            <ul class="space-y-2 text-steel-300 text-sm">
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Structural analysis and design of reinforced concrete buildings using ETABS and SAFE
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Reviewing drawings against structural design intent
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Participated in construction supervision and site quality control
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Entry 2 -->
-        <div class="project-card experience-entry relative flex gap-6 mb-10 reveal reveal-delay-1"
-          data-categories="experience">
-          <div class="flex flex-col items-center">
-            <div class="timeline-dot">🏢</div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="card-glass p-6 flex-1">
-            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-              <div>
-                <h3 id="experience-entry-2-title" class="text-steel-100 font-semibold text-lg">Site & Structural
-                  Engineer</h3>
-                <p id="experience-entry-2-role" class="text-amber-400 font-medium text-sm">Qased Khair Company</p>
-              </div>
-              <span class="tag tag-steel">Previous</span>
-            </div>
-            <ul class="space-y-2 text-steel-300 text-sm">
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Participated in construction supervision and site quality control
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Applied reinforced concrete design principles on active projects
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Coordinated execution sequences to meet project milestones
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Entry 3 -->
-        <div class="project-card experience-entry relative flex gap-6 reveal reveal-delay-2"
-          data-categories="experience">
-          <div class="flex flex-col items-center">
-            <div class="timeline-dot">📐</div>
-          </div>
-          <div class="card-glass p-6 flex-1">
-            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-              <div>
-                <h3 id="experience-entry-3-title" class="text-steel-100 font-semibold text-lg">Structural Design
-                  Engineer</h3>
-                <p id="experience-entry-3-role" class="text-amber-400 font-medium text-sm">Al-Aziz Engineering Office
-                </p>
-              </div>
-              <span class="tag tag-steel">Previous</span>
-            </div>
-            <ul class="space-y-2 text-steel-300 text-sm">
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Structural analysis using ETABS and SAFE for RC buildings
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Produced and reviewed shop drawings with AutoCAD
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-amber-500 mt-0.5">▸</span>
-                Verified calculation accuracy and ensured code compliance
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div id="experience-list" class="relative max-w-3xl mx-auto" aria-live="polite">
+        <p class="text-center text-steel-400 text-sm">Loading experience...</p>
       </div>
     </div>
   </section>
@@ -1293,147 +1198,14 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap gap-3 mb-8 reveal reveal-delay-2">
-        <button class="project-filter-btn active" data-category="all">All <span class="filter-count">7</span></button>
-        <button class="project-filter-btn" data-category="structural">Structural Design <span
-            class="filter-count">1</span></button>
-        <button class="project-filter-btn" data-category="site">Site
-          Execution <span class="filter-count">1</span></button>
-        <button class="project-filter-btn" data-category="training">Training <span
-            class="filter-count">2</span></button>
-        <button class="project-filter-btn" data-category="experience">Professional Experience <span
-            class="filter-count">3</span></button>
+      <div id="project-filters" class="flex flex-wrap gap-3 mb-8 reveal reveal-delay-2" aria-label="Project categories">
+        <button class="project-filter-btn active" data-category="all">All <span class="filter-count">0</span></button>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <article class="project-card reveal" data-category="structural">
-          <div class="project-media project-gallery">
-            <div class="project-gallery-main">
-              <img src="assets/images/selected-work/project-0-1.jpg"
-                alt="Tower project with basement, ground floor, and 13 repeated floors" />
-              <div class="project-gallery-controls">
-                <button type="button" class="project-gallery-control project-gallery-control--prev"
-                  aria-label="Previous image">‹</button>
-                <button type="button" class="project-gallery-control project-gallery-control--next"
-                  aria-label="Next image">›</button>
-              </div>
-              <div class="project-overlay">
-                <span class="tag tag-amber">Structural Design</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3">Tower Project with Repeats</h3>
-                <p class="text-sm text-steel-300 mt-2">Project: Tower with basement, ground floor, and
-                  13 repeated floors</p>
-                <p class="text-sm text-steel-200 mt-3">I also handled the seismic protection design for this
-                  structure.</p>
-              </div>
-            </div>
-            <div class="project-gallery-indicators">
-              <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/selected-work/project-0-1.jpg"
-                data-alt="Tower project with basement and 13 repeated floors"></button>
-              <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/selected-work/project-0-2.jpg" data-alt="Project 0 tower site view"></button>
-            </div>
-          </div>
-        </article>
-
-
-        <article class="project-card reveal reveal-delay-2" data-category="training">
-          <div class="project-media project-gallery">
-            <div class="project-gallery-main">
-              <img src="assets/images/selected-work/project-1.jpg" alt="Villa construction training project" />
-              <div class="project-gallery-controls">
-                <button type="button" class="project-gallery-control project-gallery-control--prev"
-                  aria-label="Previous image">‹</button>
-                <button type="button" class="project-gallery-control project-gallery-control--next"
-                  aria-label="Next image">›</button>
-              </div>
-              <div class="project-overlay">
-                <span class="tag tag-amber">Training</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3">Residential Villa Supervision</h3>
-                <p class="text-sm text-steel-300 mt-2">Project: Residential villa – Mr. Abdel
-                  Aziz El Sayed</p>
-                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate, Menia El Nasr</p>
-              </div>
-            </div>
-            <div class="project-gallery-indicators">
-              <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/selected-work/project-1.jpg"
-                data-alt="Villa construction training project"></button>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal reveal-delay-3" data-category="site">
-          <div class="project-media project-gallery">
-            <div class="project-gallery-main">
-              <img src="assets/images/selected-work/project-2-1.jpg" alt="Residential tower supervision project" />
-              <div class="project-gallery-controls">
-                <button type="button" class="project-gallery-control project-gallery-control--prev"
-                  aria-label="Previous image">‹</button>
-                <button type="button" class="project-gallery-control project-gallery-control--next"
-                  aria-label="Next image">›</button>
-              </div>
-              <div class="project-overlay">
-                <span class="tag tag-amber">Site Execution</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3">Residential Tower Supervision</h3>
-                <p class="text-sm text-steel-300 mt-2">Project: Residential tower – Mr. Tamer Hafez</p>
-                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate,
-                  Menia El Nasr, Mit El Kholei</p>
-              </div>
-            </div>
-            <div class="project-gallery-indicators">
-              <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/selected-work/project-2-1.jpg"
-                data-alt="Residential tower supervision project"></button>
-              <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/selected-work/project-2-2.jpg"
-                data-alt="Residential tower site progress"></button>
-              <button type="button" class="project-gallery-indicator" data-index="2"
-                data-src="assets/images/selected-work/project-2-3.jpg"
-                data-alt="Reinforced concrete slab construction"></button>
-              <button type="button" class="project-gallery-indicator" data-index="3"
-                data-src="assets/images/selected-work/project-2-4.jpg"
-                data-alt="Tower project site supervision"></button>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal reveal-delay-4" data-category="training">
-          <div class="project-media project-gallery">
-            <div class="project-gallery-main">
-              <img src="assets/images/selected-work/project-3-1.JPG"
-                alt="Commercial and residential complex supervision" />
-              <div class="project-gallery-controls">
-                <button type="button" class="project-gallery-control project-gallery-control--prev"
-                  aria-label="Previous image">‹</button>
-                <button type="button" class="project-gallery-control project-gallery-control--next"
-                  aria-label="Next image">›</button>
-              </div>
-              <div class="project-overlay">
-                <span class="tag tag-amber">Training</span>
-                <h3 class="text-xl font-semibold text-steel-100 mt-3">Commercial & Residential Complex</h3>
-                <p class="text-sm text-steel-300 mt-2">Project: Complex – Qased Khair Company</p>
-                <p class="text-sm text-steel-200 mt-3">Location: Dakahlia Governorate, Mansoura -
-                  Talkha</p>
-              </div>
-            </div>
-            <div class="project-gallery-indicators">
-              <button type="button" class="project-gallery-indicator active" data-index="0"
-                data-src="assets/images/selected-work/project-3-1.JPG"
-                data-alt="Commercial and residential complex supervision"></button>
-              <button type="button" class="project-gallery-indicator" data-index="1"
-                data-src="assets/images/selected-work/project-3-2.jpg"
-                data-alt="Complex project construction progress"></button>
-              <button type="button" class="project-gallery-indicator" data-index="2"
-                data-src="assets/images/selected-work/project-3-3.jpg"
-                data-alt="Post-tension slab supervision"></button>
-              <button type="button" class="project-gallery-indicator" data-index="3"
-                data-src="assets/images/selected-work/project-3-4.jpg"
-                data-alt="Shop and residential complex site"></button>
-            </div>
-          </div>
-        </article>
+      <div id="project-grid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6" aria-live="polite">
+        <p class="text-steel-400 text-sm">Loading selected work...</p>
       </div>
+      <div id="experience-in-work" class="experience-in-work mt-8" aria-label="Professional experience"></div>
     </div>
   </section>
 
@@ -1441,6 +1213,20 @@
   <!-- ════════════════════════════════════════
      SKILLS
 ════════════════════════════════════════ -->
+
+
+  <section id="blog" class="py-24 px-6 md:px-12 blueprint-bg">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="section-eyebrow mb-3">From the Blog</p>
+        <h2 id="blog-title" class="section-title">Engineering Notes</h2>
+      </div>
+      <div id="blog-posts" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6" aria-live="polite">
+        <p id="blog-empty" class="text-center text-steel-400 text-sm md:col-span-2 xl:col-span-3">New articles are coming soon.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="skills" class="py-24 px-6 md:px-12" style="background:#0D1F38">
     <div class="max-w-6xl mx-auto">
 
@@ -1846,7 +1632,7 @@
     document.querySelectorAll('.card-glass').forEach(card => barObserver.observe(card));
 
     /* ── Projects showcase ── */
-    const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
+    let projectFilterButtons = Array.from(document.querySelectorAll('.project-filter-btn'));
 
     // Centralized English copy for dynamic interface elements.
     const data = {
@@ -2047,6 +1833,170 @@
       });
     }
 
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[char]);
+    }
+
+    function assetURL(path) {
+      const cleanPath = String(path || '').trim().replace(/^\/+/, '');
+      if (!cleanPath.startsWith('assets/images/') || cleanPath.split('/').includes('..')) return '';
+      return new URL(cleanPath, document.baseURI).href;
+    }
+
+    function renderExperienceCard(entry, index, forPortfolio = false) {
+      const delay = index ? ` reveal-delay-${Math.min(index, 4)}` : '';
+      const statusClass = entry.status === 'Current' ? 'tag-amber' : 'tag-steel';
+      const timelineLine = index < 2 ? '<div class="timeline-line"></div>' : '';
+      const bullets = (entry.bullets || []).map(item => `
+        <li class="flex items-start gap-2.5"><span class="text-amber-500 mt-0.5">›</span>${escapeHTML(item)}</li>
+      `).join('');
+      const portfolioClass = forPortfolio ? 'project-card ' : '';
+      const dataCategory = forPortfolio ? ' data-categories="experience"' : '';
+      return `
+        <article class="${portfolioClass}experience-entry relative flex gap-6 mb-10 reveal${delay}"${dataCategory}>
+          <div class="flex flex-col items-center"><div class="timeline-dot">${escapeHTML(entry.icon || '•')}</div>${timelineLine}</div>
+          <div class="card-glass p-6 flex-1${index === 0 ? ' mb-0' : ''}">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div><h3 class="text-steel-100 font-semibold text-lg">${escapeHTML(entry.title)}</h3>
+                <p class="text-amber-400 font-medium text-sm">${escapeHTML(entry.organization)}</p></div>
+              <span class="tag ${statusClass}">${escapeHTML(entry.status)}</span>
+            </div><ul class="space-y-2 text-steel-300 text-sm">${bullets}</ul>
+          </div>
+        </article>`;
+    }
+
+    function renderProjectCard(project, categoryLabels, index) {
+      const gallery = Array.isArray(project.images) ? project.images : [];
+      const cover = project.coverImage || gallery[0]?.src || '';
+      const coverImage = gallery.find(image => image.src === cover) || { src: cover, alt: project.title };
+      const images = [coverImage, ...gallery.filter(image => image.src !== cover)];
+      const categoryLabel = categoryLabels[project.category] || project.category || 'Project';
+      const description = Array.isArray(project.description) ? project.description : [project.description].filter(Boolean);
+      const infoLabels = { location: 'Location', date: 'Date', role: 'Role', projectType: 'Project type', scope: 'Scope' };
+      const info = project.info || {};
+      const details = Object.keys(infoLabels).filter(key => info[key]).map(key =>
+        `<p class="text-sm text-steel-200 mt-2">${infoLabels[key]}: ${escapeHTML(info[key])}</p>`
+      ).join('');
+      const indicatorButtons = images.map((image, imageIndex) => `
+        <button type="button" class="project-gallery-indicator${imageIndex === 0 ? ' active' : ''}" data-index="${imageIndex}"
+          data-src="${escapeHTML(assetURL(image.src))}" data-alt="${escapeHTML(image.alt || project.title)}" aria-label="Show image ${imageIndex + 1}"></button>
+      `).join('');
+      const delay = index ? ` reveal-delay-${Math.min(index + 1, 4)}` : '';
+      return `
+        <article class="project-card reveal${delay}" data-category="${escapeHTML(project.category)}" data-order="${index + 1}">
+          <div class="project-media project-gallery"><div class="project-gallery-main">
+            <img src="${escapeHTML(assetURL(coverImage.src))}" alt="${escapeHTML(coverImage.alt || project.title)}" loading="lazy" />
+            <div class="project-gallery-controls">
+              <button type="button" class="project-gallery-control project-gallery-control--prev" aria-label="Previous image">‹</button>
+              <button type="button" class="project-gallery-control project-gallery-control--next" aria-label="Next image">›</button>
+            </div>
+            <div class="project-overlay"><span class="tag tag-amber">${escapeHTML(categoryLabel)}</span>
+              <h3 class="text-xl font-semibold text-steel-100 mt-3">${escapeHTML(project.title)}</h3>
+              ${description.map((line, lineIndex) => `<p class="text-sm ${lineIndex ? 'text-steel-200 mt-3' : 'text-steel-300 mt-2'}">${escapeHTML(line)}</p>`).join('')}${details}
+            </div>
+          </div><div class="project-gallery-indicators">${indicatorButtons}</div></div>
+        </article>`;
+    }
+
+    function renderBlogPost(post) {
+      const bodyText = String(post.body || '');
+      const paragraphs = bodyText.split(/\n\s*\n/).filter(Boolean).map(paragraph =>
+        `<p class="text-steel-300 text-sm leading-relaxed mt-3">${safeMarkdown(paragraph).replace(/\n/g, '<br>')}</p>`
+      ).join('');
+      const image = post.coverImage ? `<img class="w-full h-52 object-cover" src="${escapeHTML(assetURL(post.coverImage))}" alt="${escapeHTML(post.imageAlt || post.title)}" loading="lazy" />` : '';
+      return `<article class="card-glass overflow-hidden">${image}<div class="p-6">
+        <time class="text-steel-400 text-xs" datetime="${escapeHTML(post.date || '')}">${escapeHTML(post.date || '')}</time>
+        <h3 class="text-steel-100 text-xl font-semibold mt-2">${escapeHTML(post.title)}</h3>${paragraphs}
+      </div></article>`;
+    }
+
+    function safeMarkdown(value) {
+      return escapeHTML(value)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline">$1</a>');
+    }
+
+    function renderFilters(categories) {
+      const container = document.getElementById('project-filters');
+      const definitions = [{ id: 'all', label: 'All' }, ...categories, { id: 'experience', label: 'Professional Experience' }];
+      container.innerHTML = definitions.map((category, index) => `
+        <button class="project-filter-btn${index === 0 ? ' active' : ''}" data-category="${escapeHTML(category.id)}">
+          ${escapeHTML(category.label)} <span class="filter-count">0</span>
+        </button>`).join('');
+      projectFilterButtons = Array.from(container.querySelectorAll('.project-filter-btn'));
+      projectFilterButtons.forEach(button => button.addEventListener('click', () => updateProjectFilter(button.dataset.category)));
+    }
+
+    async function loadPortfolioContent() {
+      const projectGrid = document.getElementById('project-grid');
+      const experienceList = document.getElementById('experience-list');
+      const blogPosts = document.getElementById('blog-posts');
+      try {
+        const [projectsResponse, experienceResponse, blogResponse, settingsResponse] = await Promise.all([
+          fetch('data/projects.json'), fetch('data/experience.json'), fetch('data/blog.json'), fetch('data/settings.json')
+        ]);
+        if (![projectsResponse, experienceResponse, blogResponse, settingsResponse].every(response => response.ok)) {
+          throw new Error('One or more content files could not be loaded.');
+        }
+        const [projectsData, experienceData, blogData, settings] = await Promise.all([
+          projectsResponse.json(), experienceResponse.json(), blogResponse.json(), settingsResponse.json()
+        ]);
+        const experiences = (experienceData.entries || []).filter(entry => entry.visible !== false);
+        const projects = (projectsData.projects || []).filter(project => project.visible !== false);
+        const categories = (settings.categories || []).filter(category => category.visible !== false);
+        const categoryLabels = Object.fromEntries(categories.map(category => [category.id, category.label]));
+        if (settings.hero?.eyebrow) document.getElementById('hero-eyebrow').textContent = settings.hero.eyebrow;
+        if (settings.hero?.subtitle) document.getElementById('hero-subtitle').textContent = settings.hero.subtitle;
+        const contactLinks = settings.contactLinks || {};
+        [['whatsapp', 'client-action'], ['youtube', 'learner-action'], ['linkedin', 'fellow-action']].forEach(([key, id]) => {
+          const link = document.getElementById(id);
+          if (link && /^https:\/\//i.test(contactLinks[key] || '')) link.href = contactLinks[key];
+        });
+        const githubLink = document.querySelector('footer a[href^="https://github.com/"]');
+        if (githubLink && /^https:\/\//i.test(contactLinks.github || '')) githubLink.href = contactLinks.github;
+        experienceList.innerHTML = experiences.map((entry, index) => renderExperienceCard(entry, index)).join('') || '<p class="text-center text-steel-400">Experience details are unavailable.</p>';
+        renderFilters(categories);
+        projectGrid.innerHTML = projects.map((project, index) => renderProjectCard(project, categoryLabels, index)).join('');
+        document.getElementById('experience-in-work').innerHTML = `<div class="relative max-w-3xl mx-auto">${experiences.map((entry, index) => renderExperienceCard(entry, index, true)).join('')}</div>`;
+
+        const posts = (blogData.posts || []).filter(post => post.published === true && post.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        document.getElementById('nav-blog').classList.toggle('hidden', posts.length === 0);
+        document.getElementById('nav-blog-mobile').classList.toggle('hidden', posts.length === 0);
+        document.getElementById('blog-title').textContent = settings.blogSectionTitle || 'Engineering Notes';
+        document.getElementById('blog-empty').textContent = settings.blogEmptyMessage || 'New articles are coming soon.';
+        if (posts.length) blogPosts.innerHTML = posts.map(renderBlogPost).join('');
+
+        updateFilterCounts();
+        updateProjectFilter(activeProjectFilter);
+        initProjectGalleries();
+        document.querySelectorAll('.reveal:not(.visible)').forEach(element => observer.observe(element));
+        document.dispatchEvent(new CustomEvent('portfolio:ready', { detail: { projects: projects.length, experiences: experiences.length, posts: posts.length } }));
+      } catch (error) {
+        console.error('Portfolio content failed to load:', error);
+        projectGrid.innerHTML = '<p class="text-steel-400 text-sm">Selected work is temporarily unavailable.</p>';
+        experienceList.innerHTML = '<p class="text-steel-400 text-sm">Experience details are temporarily unavailable.</p>';
+      }
+    }
+
+    function setTextDirection(direction) {
+      const nextDirection = direction || (document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+      document.documentElement.dir = nextDirection;
+      document.body.dir = nextDirection;
+      document.getElementById('projects').dir = nextDirection;
+      document.querySelectorAll('#direction-toggle, #direction-toggle-mobile').forEach(button => {
+        button.textContent = nextDirection === 'rtl' ? 'RTL / LTR' : 'LTR / RTL';
+        button.setAttribute('aria-pressed', String(nextDirection === 'rtl'));
+      });
+    }
+
+    document.querySelectorAll('#direction-toggle, #direction-toggle-mobile').forEach(button => {
+      button.addEventListener('click', () => setTextDirection());
+    });
+
     const typeRoles = [
       'Structural Design Engineer',
       'Site Supervision Engineer',
@@ -2081,15 +2031,9 @@
       setTimeout(type, deleting ? 45 : 70);
     }
 
-    projectFilterButtons.forEach(btn => {
-      btn.addEventListener('click', () => updateProjectFilter(btn.dataset.category));
-    });
-
-    mergeExperienceIntoProjects();
-    updateFilterCounts();
     updateLanguage('en');
-    updateProjectFilter(activeProjectFilter);
-    initProjectGalleries();
+    setTextDirection('ltr');
+    loadPortfolioContent();
 
   </script>
 </body>

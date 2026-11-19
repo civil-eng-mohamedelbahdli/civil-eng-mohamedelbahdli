@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "id": "fouda-group",
+      "title": "Structural Design Engineer",
+      "organization": "Fouda Group",
+      "status": "Current",
+      "icon": "🏗️",
+      "bullets": [
+        "Structural analysis and design of reinforced concrete buildings using ETABS and SAFE",
+        "Reviewing drawings against structural design intent",
+        "Participated in construction supervision and site quality control"
+      ],
+      "visible": true
+    },
+    {
+      "id": "qased-khair-company",
+      "title": "Site & Structural Engineer",
+      "organization": "Qased Khair Company",
+      "status": "Previous",
+      "icon": "🏢",
+      "bullets": [
+        "Participated in construction supervision and site quality control",
+        "Applied reinforced concrete design principles on active projects",
+        "Coordinated execution sequences to meet project milestones"
+      ],
+      "visible": true
+    },
+    {
+      "id": "al-aziz-engineering-office",
+      "title": "Structural Design Engineer",
+      "organization": "Al-Aziz Engineering Office",
+      "status": "Previous",
+      "icon": "📐",
+      "bullets": [
+        "Structural analysis using ETABS and SAFE for RC buildings",
+        "Produced and reviewed shop drawings with AutoCAD",
+        "Verified calculation accuracy and ensured code compliance"
+      ],
+      "visible": true
+    }
+  ]
+}
