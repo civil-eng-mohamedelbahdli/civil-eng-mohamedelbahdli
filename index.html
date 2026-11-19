@@ -867,37 +867,14 @@
 ════════════════════════════════════════ -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 lg:px-12">
     <div class="nav-shell max-w-6xl mx-auto">
-      <div class="flex items-center justify-between">
-
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center gap-2.5 group">
-          <div class="brand-mark flex items-center justify-center">
-            <span class="font-display font-800 text-navy-900 text-base leading-none font-extrabold"
-              style="color:#0B1A2F;font-family:'Barlow Condensed',sans-serif;font-weight:800">ME</span>
-          </div>
-          <span class="font-display font-semibold tracking-widest text-sm text-steel-300 uppercase hidden sm:block"
-            style="font-family:'Barlow Condensed',sans-serif;letter-spacing:.12em">Elbahdli</span>
-        </a>
+      <div class="flex items-center justify-center">
 
         <!-- Desktop links -->
-        <div class="hidden md:flex items-center gap-3 lg:gap-4">
-          <a href="#about" id="nav-about" class="nav-link">About</a>
-          <a href="#projects" id="nav-experience" class="nav-link nav-link-highlight">Experience</a>
-          <div class="services-dropdown" id="services-dropdown">
-            <button id="services-trigger" class="nav-link services-trigger" type="button" aria-expanded="false"
-              aria-controls="services-menu">
-              <span id="nav-services">Services</span>
-              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
-              </svg>
-            </button>
-            <div id="services-menu" class="services-menu" role="menu" aria-labelledby="services-trigger">
-              <a id="nav-service-client" href="#client" role="menuitem">Client</a>
-              <a id="nav-service-learner" href="#learner" role="menuitem">Learner</a>
-              <a id="nav-service-fellow-engineer" href="#fellow-engineer" role="menuitem">Fellow Engineer</a>
-            </div>
-          </div>
+        <div class="hidden md:flex items-center justify-center gap-10 lg:gap-16 w-full">
+          <a href="#hero" id="nav-home" class="nav-link nav-link-highlight">Home</a>
+          <a href="#projects" id="nav-experience" class="nav-link">Experience</a>
+          <a href="#learner" id="nav-blog" class="nav-link">Blog</a>
+          <a href="#projects" id="nav-portfolio" class="nav-link">Portfolio Page</a>
         </div>
 
         <!-- Mobile header actions -->
@@ -916,27 +893,11 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="md:hidden" style="background:rgba(11,26,47,.98)">
-        <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-4 border-t border-steel-400 border-opacity-10 mt-3">
-          <a href="#about" id="nav-about-mobile" class="nav-link" onclick="closeMobile()">About</a>
-          <a href="#projects" id="nav-experience-mobile" class="nav-link nav-link-highlight"
-            onclick="closeMobile()">Experience</a>
-          <details class="mobile-services">
-            <summary class="nav-link flex items-center justify-between">
-              <span id="nav-services-mobile">Services</span>
-              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m5 7 5 5 5-5" />
-              </svg>
-            </summary>
-            <div class="mt-3 ml-3 pl-4 border-l border-steel-400 border-opacity-20 flex flex-col gap-3">
-              <a id="nav-service-client-mobile" href="#client" class="nav-link text-xs"
-                onclick="closeMobile()">Client</a>
-              <a id="nav-service-learner-mobile" href="#learner" class="nav-link text-xs"
-                onclick="closeMobile()">Learner</a>
-              <a id="nav-service-fellow-engineer-mobile" href="#fellow-engineer" class="nav-link text-xs"
-                onclick="closeMobile()">Fellow Engineer</a>
-            </div>
-          </details>
+        <div class="max-w-6xl mx-auto py-4 px-6 flex flex-col gap-2 border-t border-steel-400 border-opacity-10 mt-3">
+          <a href="#hero" id="nav-home-mobile" class="nav-link nav-link-highlight" onclick="closeMobile()">Home</a>
+          <a href="#projects" id="nav-experience-mobile" class="nav-link" onclick="closeMobile()">Experience</a>
+          <a href="#learner" id="nav-blog-mobile" class="nav-link" onclick="closeMobile()">Blog</a>
+          <a href="#projects" id="nav-portfolio-mobile" class="nav-link" onclick="closeMobile()">Portfolio Page</a>
         </div>
       </div>
     </div>
@@ -1006,14 +967,7 @@
           </div>
 
           <div class="hero-actions mt-2 flex flex-wrap gap-4 reveal reveal-delay-4">
-            <a href="assets/documents/Mohamad_Elbahdli_CV.pdf" id="hero-cv" class="btn-amber" download>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download CV
-            </a>
-            <a href="#services" id="hero-contact" class="btn-ghost">
+            <a href="#services" id="hero-contact" class="btn-amber">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -1908,7 +1862,6 @@
           eyebrow: 'Structural Civil Engineer',
           title: 'MOHAMAD<br><span class="amber-line">ELBAHDLI</span>',
           subtitle: 'Civil Engineer with 1+ year of experience in <strong class="text-steel-200">structural engineering</strong> and <strong class="text-steel-200">site execution</strong>. Skilled in reinforced concrete design, shop drawing review, and construction supervision — delivering accurate structural solutions with precision.',
-          cv: 'Download CV',
           contact: 'Explore Services',
           scroll: 'Scroll',
           stat1: 'Buildings<br>Supervised',
@@ -1964,7 +1917,7 @@
       setText('client-label', t.services.clientLabel); setText('client-title', t.services.clientTitle); setText('client-description', t.services.clientDescription); setText('client-action-text', t.services.clientAction);
       setText('learner-label', t.services.learnerLabel); setText('learner-title', t.services.learnerTitle); setText('learner-description', t.services.learnerDescription); setText('learner-action-text', t.services.learnerAction);
       setText('fellow-label', t.services.fellowLabel); setText('fellow-title', t.services.fellowTitle); setText('fellow-description', t.services.fellowDescription); setText('fellow-action-text', t.services.fellowAction);
-      setText('hero-eyebrow', t.hero.eyebrow); setText('hero-title', t.hero.title); setText('hero-subtitle', t.hero.subtitle); setText('hero-cv', t.hero.cv); setText('hero-contact', t.hero.contact); setText('hero-scroll', t.hero.scroll); setText('hero-stat-1-label', t.hero.stat1); setText('hero-stat-2-label', t.hero.stat2); setText('hero-stat-3-label', t.hero.stat3);
+      setText('hero-eyebrow', t.hero.eyebrow); setText('hero-title', t.hero.title); setText('hero-subtitle', t.hero.subtitle); setText('hero-contact', t.hero.contact); setText('hero-scroll', t.hero.scroll); setText('hero-stat-1-label', t.hero.stat1); setText('hero-stat-2-label', t.hero.stat2); setText('hero-stat-3-label', t.hero.stat3);
       setText('about-eyebrow', t.about.eyebrow); setText('about-title', t.about.title); setText('about-p1', t.about.intro1); setText('about-p2', t.about.intro2); setText('about-p3', t.about.intro3); setText('leadership-title', t.about.leadership); setText('leadership-1', t.about.bullet1); setText('leadership-2', t.about.bullet2); setText('leadership-3', t.about.bullet3); setText('leadership-4', t.about.bullet4);
       setText('education-eyebrow', t.education.eyebrow); setText('education-title', t.education.title); setText('education-title-card', t.education.degreeTitle); setText('education-subtitle-card', t.education.degreeSubtitle); setText('graduation-title', t.education.projectTitle); setText('graduation-tag', t.education.projectTag); setText('graduation-item-1', t.education.projectItem1); setText('graduation-item-2', t.education.projectItem2); setText('graduation-item-3', t.education.projectItem3); setText('graduation-item-4', t.education.projectItem4);
       setText('experience-eyebrow', t.experience.eyebrow); setText('experience-title', t.experience.title); setText('experience-entry-1-title', t.experience.entry1Title); setText('experience-entry-1-role', t.experience.entry1Role); setText('experience-entry-2-title', t.experience.entry2Title); setText('experience-entry-2-role', t.experience.entry2Role); setText('experience-entry-3-title', t.experience.entry3Title); setText('experience-entry-3-role', t.experience.entry3Role);
