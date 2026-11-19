@@ -2,6 +2,10 @@ const GITHUB_AUTHORIZE_URL = "https://github.com/login/oauth/authorize";
 const GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token";
 const GITHUB_USER_URL = "https://api.github.com/user";
 
+function getRepositoryToken(env) {
+  return env.GITHUB_REPO_TOKEN || env["GITHUB_REPO_TOKEN."];
+}
+
 function secureRandomState() {
   const bytes = crypto.getRandomValues(new Uint8Array(32));
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join(
@@ -57,12 +61,13 @@ function authorizationResult(status, payload, siteOrigin) {
 
 async function handleAuth(request, env) {
   const url = new URL(request.url);
+  const repositoryToken = getRepositoryToken(env);
   if (url.searchParams.get("provider") !== "github")
     return textResponse("Unsupported provider.");
   if (
     !env.GITHUB_OAUTH_ID ||
     !env.GITHUB_OAUTH_SECRET ||
-    !env.GITHUB_REPO_TOKEN ||
+    !repositoryToken ||
     !env.ALLOWED_GITHUB_USERNAME ||
     !env.ALLOWED_SITE_ORIGIN
   ) {
@@ -144,7 +149,7 @@ async function handleCallback(request, env) {
 
   const success = authorizationResult(
     "success",
-    { token: env.GITHUB_REPO_TOKEN },
+    { token: getRepositoryToken(env) },
     env.ALLOWED_SITE_ORIGIN,
   );
   success.headers.append("set-cookie", clearStateCookie);
