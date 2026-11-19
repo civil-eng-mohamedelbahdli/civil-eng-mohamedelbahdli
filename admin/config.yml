@@ -2,7 +2,7 @@ backend:
   name: github
   repo: civil-eng-mohamedelbahdli/civil-eng-mohamedelbahdli
   branch: main
-  base_url: https://portfolio-decap-oauth.YOUR-CLOUDFLARE-SUBDOMAIN.workers.dev
+  base_url: https://portfolio-decap-oauth.eng-mohamedelbahdli.workers.dev
   auth_endpoint: auth
 
 site_url: https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/
