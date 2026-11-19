@@ -16,15 +16,23 @@
 1. ارفع فرع `dashboard` إلى GitHub وافتح Pull Request إلى `main`، ثم ادمجه بعد مراجعة التغييرات. فرع `pre-dashboard` يحتفظ بنسخة الرجوع التي أُنشئت قبل التعديلات.
 2. في GitHub افتح **Settings → Pages** وتأكد أن النشر من `main` ومجلد الجذر `/`. عنوان المشروع المتوقع هو `https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/`.
 
-## إنشاء OAuth App على GitHub
+## إنشاء OAuth App ورمز المستودع
 
 1. سجّل الدخول إلى حساب GitHub المالك للموقع.
 2. افتح **Settings → Developer settings → OAuth Apps → New OAuth App**.
-3. أدخل اسمًا مثل `Mohamed Portfolio CMS`.
+3. أدخل الاسم `Mohamed Elbahdli Portfolio CMS`.
 4. اجعل **Homepage URL** عنوان موقعك المنشور: `https://civil-eng-mohamedelbahdli.github.io/civil-eng-mohamedelbahdli/`.
-5. اجعل **Authorization callback URL** عنوان Worker نفسه متبوعًا بـ `/callback`، مثل `https://worker-name.account-subdomain.workers.dev/callback`.
-6. أنشئ التطبيق واحفظ **Client ID** و**Client Secret** مؤقتًا في مدير كلمات مرور. لا ترسلهما في محادثة ولا تضعهما في Git.
-7. إذا ظهر خيار **Expire user authorization tokens**، عطّله لهذا التطبيق؛ تدفق Decap/Worker الحالي يتبادل ويرسل access token فقط ولا يجدّد refresh tokens. GitHub توصي عادةً بالرموز المنتهية، لذا أعد تسجيل الدخول عند إبطال الرمز، وألغِ تفويض التطبيق من إعدادات الحساب إذا لم تعد تستخدمه.
+5. اجعل **Authorization callback URL** `https://portfolio-decap-oauth.eng-mohamedelbahdli.workers.dev/callback`.
+6. أنشئ التطبيق واحفظ **Client ID** و**Client Secret** مؤقتًا في مكان خاص وآمن. لا ترسلهما في محادثة ولا تضعهما في Git.
+7. لا توافق على صلاحية `public_repo`: الـWorker يطلب `read:user` للتحقق من اسم المستخدم فقط، ويستخدم Fine-grained token منفصلًا للحفظ.
+
+## إنشاء Fine-grained token محدود بالمستودع
+
+1. في GitHub افتح **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. سمّه `Portfolio Decap CMS`، واختر المالك `civil-eng-mohamedelbahdli`، وحدد انتهاءً زمنيًا مناسبًا.
+3. في **Repository access** اختر **Only select repositories** ثم اختر `civil-eng-mohamedelbahdli`.
+4. في **Repository permissions** اجعل **Contents** على **Read and write**. اترك بقية الصلاحيات دون منح؛ **Metadata** للقراءة يضاف تلقائيًا.
+5. أنشئ الرمز وانسخه مباشرة إلى Secret في Cloudflare في الخطوات التالية. لا ترسله في محادثة أو تحفظه في ملف.
 
 ## نشر OAuth Worker مجانًا على Cloudflare
 
@@ -40,18 +48,12 @@
    وافق على ربط Wrangler بحسابك. سيظهر عنوان Worker من الشكل `https://portfolio-decap-oauth.<account-subdomain>.workers.dev`.
 
 2. حدّث **Homepage URL** و**Authorization callback URL** في GitHub OAuth App بالقيم الفعلية، مع إضافة `/callback` للأخيرة.
-3. خزّن بيانات التطبيق كأسرار في Cloudflare، من Terminal نفسه:
-
-   ```powershell
-   npx wrangler secret put GITHUB_OAUTH_ID --config cloudflare-worker/wrangler.toml
-   npx wrangler secret put GITHUB_OAUTH_SECRET --config cloudflare-worker/wrangler.toml
-   ```
-
-   أدخل القيمة عند مطالبة Wrangler بها؛ لن تُكتب في ملفات المشروع.
+3. من Worker → **Settings → Variables and Secrets** خزّن `GITHUB_OAUTH_SECRET` و`GITHUB_REPO_TOKEN` كـ**Secrets**. `GITHUB_OAUTH_ID` متغير عادي. لا تضع أيًا منها في ملفات المشروع.
 
 4. من لوحة Cloudflare افتح Worker `portfolio-decap-oauth` ثم **Settings → Variables and Secrets → Variables** وأضف `ALLOWED_GITHUB_USERNAME` بالقيمة `civil-eng-mohamedelbahdli`. هذا هو اسم مستخدم GitHub المسموح الوحيد. احفظ التغيير وأعد نشر/تشغيل Worker إذا طلبت Cloudflare ذلك. المتغير `ALLOWED_SITE_ORIGIN` يظل `https://civil-eng-mohamedelbahdli.github.io`، أي النطاق فقط من دون مسار المستودع.
-5. انسخ عنوان Worker الحقيقي إلى `backend.base_url` في `admin/config.yml` (من دون `/auth` أو `/callback`) ثم احفظ التعديل وارفع فرع `dashboard` وادمجه في `main`.
-6. بعد نشر GitHub Pages، افتح `/admin/` وسجّل الدخول بحساب GitHub المسموح. الـWorker يرفض أي حساب آخر قبل تسليم access token إلى لوحة الإدارة.
+5. عند الاختبار المحلي اجعل `ALLOWED_SITE_ORIGIN` عنوان المعاينة المحلي فقط؛ قبل النشر أعده إلى `https://civil-eng-mohamedelbahdli.github.io`.
+6. انسخ عنوان Worker الحقيقي إلى `backend.base_url` في `admin/config.yml` (من دون `/auth` أو `/callback`). اجعل `backend.branch` يساوي `main` للنشر الحي.
+7. الـWorker يرفض أي حساب عدا `civil-eng-mohamedelbahdli`، ولا يسلّم للوحة الإدارة إلا Fine-grained token المحصور بالمستودع المحدد.
 
 ## الصور
 
